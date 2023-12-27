@@ -1,48 +1,35 @@
-
-
-::: {.cell .markdown}
 # Term project(2021105563 강희주)
 
-**2020년도 한국 아티스트의 인기도 분석**
-:::
+ **2020년도 한국 아티스트의 인기도 분석**
 
-::: {.cell .markdown}
-\# 1.주제 선정 이유 인간의 삶에서 음악은 떼놓을 수 없는 존재이다. 나를
-포함한 대부분의 사람들은 음악을 들으면서 휴식을 취하고 여가 시간을
-보낸다. `<br>`{=html} 모든 음원 스트리밍 사이트에는 인기 차트가 있는데,
-최근 들어 이 인기 차트가 많이 변질되어가고 있다. `<br>`{=html}
-![멜론차트](img/멜론차트.png)
+ # 1.주제 선정 이유 
+ 인간의 삶에서 음악은 떼놓을 수 없는 존재이다. 나를 포함한 대부분의 사람들은 음악을 들으면서 휴식을 취하고 여가 시간을 보낸다. <br>
+ 모든 음원 스트리밍 사이트에는 인기 차트가 있는데, 최근 들어 이 인기 차트가 많이 변질되어가고 있다. <br>
+ ![멜론차트](img/멜론차트.png)
+ 
+ 해당 사진은 방탄소년단 앨범이 발매되었을 당시, 인기차트가 방탄소년단의 곡들로 도배된 모습이다. 이는, 몇몇 팬들이 노래를 듣지 않고도 하루 종일 노래를 반복재생하여 인기차트 상단에 위치하게 된 것이다.<br> 
+ 이처럼, 나를 포함한 수많은 사람들은 이러한 몇몇 팬들 때문에 듣고 싶은 노래를 못 듣게 되는 경우가 종종 발생한다. 나는 이러한 인기차트의 문제점을 해결하고 싶어 좀 더 가중치를 부가한 인기 아티스트 차트를 만들어보고자 한다. <br>
 
-해당 사진은 방탄소년단 앨범이 발매되었을 당시, 인기차트가 방탄소년단의
-곡들로 도배된 모습이다. 이는, 몇몇 팬들이 노래를 듣지 않고도 하루 종일
-노래를 반복재생하여 인기차트 상단에 위치하게 된 것이다.`<br>`{=html}
-이처럼, 나를 포함한 수많은 사람들은 이러한 몇몇 팬들 때문에 듣고 싶은
-노래를 못 듣게 되는 경우가 종종 발생한다. 나는 이러한 인기차트의
-문제점을 해결하고 싶어 좀 더 가중치를 부가한 인기 아티스트 차트를
-만들어보고자 한다. `<br>`{=html}
-:::
 
-::: {.cell .markdown}
-# 2. 주제 정의 {#2-주제-정의}
+# 2. 주제 정의 
+ 2020년 한국에서 가장 인기 있었던 아티스트들을 순위를 매겨서 국내 TOP 20아티스트를 선정해 볼 것이다. <br>
+ 이를 위해 한국 인기차트에 언급된 횟수, 스트리밍 및 다운로드 수, 포털 사이트 검색량 등을 지표로 이용해 점수로 환산해 볼 것이다.
 
-2020년 한국에서 가장 인기 있었던 아티스트들을 순위를 매겨서 국내 TOP
-20아티스트를 선정해 볼 것이다. `<br>`{=html} 이를 위해 한국 인기차트에
-언급된 횟수, 스트리밍 및 다운로드 수, 포털 사이트 검색량 등을 지표로
-이용해 점수로 환산해 볼 것이다.
-:::
 
-::: {.cell .markdown}
-# 3. 인터넷을 통한 데이터 획득 {#3-인터넷을-통한-데이터-획득}
-:::
+# 3. 인터넷을 통한 데이터 획득 
 
-::: {.cell .markdown}
-**1) Beautiful Soup을 활용한 벅스 차트 크롤링** `<br>`{=html} Url이
-간편해서 사용하기 쉬운 벅스 차트를 활용하였고, 주간별로 1-40등까지
-크롤링해보았다. 다음은 해당 코드이다.
-:::
+ 
 
-::: {.cell .code execution_count="2"}
-``` python
+
+
+
+**1) Beautiful Soup을 활용한 벅스 차트 크롤링** <br>
+Url이 간편해서 사용하기 쉬운 벅스 차트를 활용하였고, 주간별로 1-40등까지 크롤링해보았다. 다음은 해당 코드이다. 
+
+
+
+
+```python
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import operator
@@ -95,7 +82,6 @@ for y in range(2020,2021):
                                 print(i+1, artist)                                                       
 ```
 
-::: {.output .stream .stdout}
     날짜:  20200107
     1 Red Velvet (레드벨벳)
     2 윤하(Younha/ユンナ)
@@ -753,9 +739,6 @@ for y in range(2020,2021):
     39 GOT7 (갓세븐)
     40 방탄소년단
     날짜:  20200429
-:::
-
-::: {.output .stream .stdout}
     1 오마이걸(OH MY GIRL)
     2 청하
     3 조정석
@@ -1412,9 +1395,6 @@ for y in range(2020,2021):
     39 창모(CHANGMO)
     40 Dua Lipa(두아 리파)
     날짜:  20200819
-:::
-
-::: {.output .stream .stdout}
     1 ITZY (있지)
     2 박진영
     3 방탄소년단
@@ -2112,9 +2092,6 @@ for y in range(2020,2021):
     39 방탄소년단
     40 이승기
     날짜:  20201216
-:::
-
-::: {.output .stream .stdout}
     1 태연 (TAEYEON)
     2 이하이
     3 스윙스(Swings)
@@ -2237,16 +2214,12 @@ for y in range(2020,2021):
     38 장범준
     39 아이유(IU)
     40 벤
-:::
-:::
 
-::: {.cell .markdown}
-크롤링한 자료에서 중복된 값의 횟수를 얻기 위해 LIst를
-만들고,try&except를 활용해 나타내 보았다.
-:::
 
-::: {.cell .code execution_count="3"}
-``` python
+크롤링한 자료에서 중복된 값의 횟수를 얻기 위해 LIst를 만들고,try&except를 활용해 나타내 보았다. 
+
+
+```python
 count={}
 for i in artistList:
     try: count[i] += 1
@@ -2262,30 +2235,22 @@ file.close()
 
 print(count_sort)
 
+
 ```
 
-::: {.output .stream .stdout}
     [('아이유(IU)', 118), ('방탄소년단', 77), ('BLACKPINK', 64), ('장범준', 60), ('오마이걸(OH MY GIRL)', 54), ('백예린 (Yerin Baek)', 43), ('창모(CHANGMO)', 42), ('볼빨간사춘기', 39), ('Maroon 5(마룬 파이브)', 38), ('지코', 37), ('Dua Lipa(두아 리파)', 36), ('Red Velvet (레드벨벳)', 33), ('태연 (TAEYEON)', 33), ('싹쓰리 (유두래곤, 린다G, 비룡)', 32), ('마마무(Mamamoo)', 31), ('Anne-Marie(앤 마리)', 31), ('Crush', 30), ('청하', 30), ('오반 (OVAN)', 30), ('조정석', 29), ('규현 (KYUHYUN)', 28), ('ITZY (있지)', 27), ('AKMU (악동뮤지션)', 26), ('폴킴(Paul Kim)', 26), ('Tones And I', 25), ('(여자)아이들', 24), ('산들', 24), ('IZ*ONE(아이즈원)', 23), ('노을', 21), ('TWICE (트와이스)', 21), ('가호(Gaho)', 20), ('조이 (JOY)', 19), ('헤이즈(Heize)', 19), ('화사(Hwa Sa)', 19), ('Conan Gray', 18), ('블루(BLOO)', 18), ('이하이', 18), ('백현(BAEKHYUN)', 17), ('미도와 파라솔', 17), ('스탠딩 에그(Standing Egg)', 17), ('에이프릴(APRIL)', 16), ('박진영', 16), ('Lauv(라우브)', 15), ('선미', 15), ('김필(Kim Feel)', 15), ('전미도', 15), ('Lizzo', 15), ('제시(Jessi)', 15), ('잔나비', 14), ('Jawsh 685', 14), ('여자친구(GFRIEND)', 13), ('Ariana Grande(아리아나 그란데)', 13), ('릴보이(lIlBOI)', 13), ('윤하(Younha/ユンナ)', 12), ('DAY6 (데이식스)', 12), ('권진아', 12), ('어반자카파', 12), ('이수현', 12), ('미란이', 12), ('백지영', 11), ('하현우(국카스텐)', 11), ('카더가든', 11), ('pH-1', 10), ('Sam Smith(샘 스미스)', 10), ('Etham', 10), ('Apink (에이핑크)', 10), ('임창정', 10), ('적재', 10), ('다비치', 9), ('씨야(SeeYa)', 9), ('엠씨더맥스 (M.C the MAX)', 9), ('휘인(Whee In)', 9), ('환불원정대', 9), ('Idina Menzel(이디나 멘젤)', 8), ('곽진언', 8), ('윤미래', 7), ('마크툽(MAKTUB)', 7), ('정승환', 7), ('레드벨벳-아이린&슬기', 7), ('비룡', 7), ('코드 쿤스트', 7), ('경서', 7), ('이승기', 7), ('aespa', 7), ('염따', 6), ('Arizona Zervas', 6), ('김세정', 6), ('영탁', 6), ('WINNER', 6), ('임영웅', 6), ('벤', 6), ('코요태', 6), ('전소미', 6), ('린다G', 6), ('유아 (오마이걸)', 6), ('스윙스(Swings)', 6), ('거미', 5), ('에이트(8Eight)', 5), ('개코', 5), ('식케이 (Sik-K)', 5), ('DAY6 (Even of Day)', 5), ('10CM', 5), ('Justin Bieber(저스틴 비버)', 5), ('NCT U', 5), ('KHUNDI PANDA', 5), ('NCT 127', 4), ('Ruel(루엘)', 4), ('펀치 (Punch)', 4), ('백아연', 4), ('세븐틴(Seventeen)', 4), ('샘김(Sam Kim)', 4), ('ASH ISLAND', 4), ('김나영', 4), ('에일리(AILEE)', 4), ('MINO(송민호)', 4), ('이승철', 4), ('Mariah Carey(머라이어 캐리)', 4), ('머쉬베놈(MUSHVENOM)', 4), ('솔라 (마마무)', 3), ('New Hope Club(뉴 호프 클럽)', 3), ('문별(마마무)', 3), ('진민호', 3), ('버스커 버스커(Busker Busker)', 3), ('제이레빗(J Rabbit)', 3), ('성시경', 3), ('러블리즈(Lovelyz)', 3), ('Harry Styles(해리 스타일스)', 3), ('로꼬', 3), ('보아 (BoA)', 3), ('원슈타인', 3), ('Sia(시아)', 3), ('에피톤 프로젝트(Epitone Project)', 3), ('에이오에이(AOA)', 2), ('유산슬', 2), ('김재환', 2), ('이해리', 2), ('Billie Eilish(빌리 아일리시)', 2), ('iKON', 2), ('V', 2), ('박경', 2), ('MC몽', 2), ('NCT DREAM', 2), ('뉴이스트', 2), ('신효범', 2), ('로이킴', 2), ('비', 2), ('우주소녀', 2), ('정은지', 2), ('유두래곤', 2), ('이상순', 2), ('박문치', 2), ('태민 (TAEMIN)', 2), ('프라이머리', 2), ('나훈아', 2), ('STAYC(스테이씨)', 2), ('양요섭', 2), ('나얼(Na-Ul)', 2), ('기리보이', 2), ('프리스타일(Free Style)', 1), ('찬열 (CHANYEOL)', 1), ('송가인', 1), ('수호 (SUHO)', 1), ('HYNN(박혜원)', 1), ('펭수', 1), ('GOT7 (갓세븐)', 1), ('신용재 (2F)', 1), ('박원', 1), ('CHEEZE(치즈)', 1), ('SuperM', 1), ('케이윌', 1), ('XIA(준수)', 1), ('투모로우바이투게더', 1), ('케이시', 1), ('이적', 1), ('비투비 포유', 1), ('허성현 (Huh!)', 1), ('김종국', 1), ('황인욱', 1), ('토이(Toy)', 1), ('Straight No Chaser(스트레이트 노 체이서)', 1), ('허각', 1), ('이무진', 1), ('양다일', 1)]
-:::
-:::
 
-::: {.cell .markdown}
-해당 dictionary에서 한국 아티스트에 국한해서 가장 많이 언급된 30명을
-선정한 뒤 .txt 파일에 정리하였다. `<br>`{=html}
+
+해당 dictionary에서 한국 아티스트에 국한해서 가장 많이 언급된 30명을 선정한 뒤 .txt 파일에 정리하였다. <br>
 ![벅스차트](img/벅스차트크롤링.png)
-:::
 
-::: {.cell .markdown}
-**2) 네이버 블로그 포스팅 수`<br>`{=html}**
+**2) 네이버 블로그 포스팅 수<br>**
 
-네이버 블로그에서의 아티스트에 관한 게시물의 개수는 아티스트의 현재
-인기도 및 활동이력에 관한 지표가 될 수 있다. `<br>`{=html} 따라서
-1번에서 뽑은 아티스트 30명에 관한 블로그 포스팅 수를 네이버의 Open API를
-활용해 나타내 보았다.
-:::
+ 네이버 블로그에서의 아티스트에 관한 게시물의 개수는 아티스트의 현재 인기도 및 활동이력에 관한 지표가 될 수 있다. <br>
+ 따라서 1번에서 뽑은 아티스트 30명에 관한 블로그 포스팅 수를 네이버의 Open API를 활용해 나타내 보았다. 
 
-::: {.cell .code execution_count="4"}
-``` python
+
+```python
 import os
 import sys
 import urllib.request
@@ -2317,7 +2282,6 @@ for artist in artist_List:
         
 ```
 
-::: {.output .stream .stdout}
     아이유
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:47 +0900",
@@ -2332,7 +2296,7 @@ for artist in artist_List:
     "bloggername": "킴씨",
     "bloggerlink": "https://blog.naver.com/shit2342",
     "postdate": "20210602"
-
+    
     },
     {
     "title": "<b>아이유</b> 신용카드 :: 삼성카드 아멕스 골드",
@@ -2341,7 +2305,7 @@ for artist in artist_List:
     "bloggername": "Day",
     "bloggerlink": "https://blog.naver.com/mydays81",
     "postdate": "20210521"
-
+    
     },
     {
     "title": "<b>아이유</b>, 한강뷰 에테르노청담 130억 원에 분양...코인",
@@ -2350,7 +2314,7 @@ for artist in artist_List:
     "bloggername": "윤킴의 입장",
     "bloggerlink": "https://blog.naver.com/yunvestor1",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "<b>아이유</b> 밤편지 뮤비 촬영지 부산 정란각 문화공감수정",
@@ -2359,7 +2323,7 @@ for artist in artist_List:
     "bloggername": "파닥's 여행하는 일상",
     "bloggerlink": "https://blog.naver.com/dlrhdmssla",
     "postdate": "20210528"
-
+    
     },
     {
     "title": "기미 여드름자국 글루타치온 화장품 / 백옥주사  <b>아이유</b>주사)",
@@ -2368,7 +2332,7 @@ for artist in artist_List:
     "bloggername": "라이크베",
     "bloggerlink": "https://blog.naver.com/mylikebe",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "<b>아이유</b>, 에테르노청담 130억에 분양…전액 현금 동원",
@@ -2377,7 +2341,7 @@ for artist in artist_List:
     "bloggername": "이솝의 신나는하루",
     "bloggerlink": "https://blog.naver.com/isop0315",
     "postdate": "20210602"
-
+    
     },
     {
     "title": "<b>아이유</b> 물 다이어트  물 많이 마시면 좋은점",
@@ -2386,7 +2350,7 @@ for artist in artist_List:
     "bloggername": "강실장의 감성디자인공방",
     "bloggerlink": "https://blog.naver.com/wisdom555555",
     "postdate": "20210503"
-
+    
     },
     {
     "title": "<b>아이유</b>도 감탄하게 만든 신박한 채널의 비밀",
@@ -2395,7 +2359,7 @@ for artist in artist_List:
     "bloggername": "바다만큼 이야기",
     "bloggerlink": "https://blog.naver.com/azaleass",
     "postdate": "20210512"
-
+    
     },
     {
     "title": "반올림피자샵 <b>아이유</b> 포토카드 겟~ 존예링",
@@ -2404,7 +2368,7 @@ for artist in artist_List:
     "bloggername": "매콤한 나의 도시",
     "bloggerlink": "https://blog.naver.com/jollini152",
     "postdate": "20210513"
-
+    
     },
     {
     "title": "[<b>아이유</b>] 130억원, 이촌에서 청담: 현대건설",
@@ -2413,11 +2377,11 @@ for artist in artist_List:
     "bloggername": "콕 COC",
     "bloggerlink": "https://blog.naver.com/drleepr",
     "postdate": "20210602"
-
+    
     }
     ]
     }
-
+    
     방탄소년단
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:48 +0900",
@@ -2432,7 +2396,7 @@ for artist in artist_List:
     "bloggername": "순수한시선 블로그",
     "bloggerlink": "https://blog.naver.com/holyspirit11",
     "postdate": "20210525"
-
+    
     },
     {
     "title": "<b>방탄소년단</b> 'Butter' 리믹스, 버터소년단",
@@ -2441,7 +2405,7 @@ for artist in artist_List:
     "bloggername": "남다른 남나르",
     "bloggerlink": "https://blog.naver.com/namnaraum",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "[BTS <b>방탄소년단</b>] 지민..한국관광산업 대표얼굴..'Korea... ",
@@ -2450,7 +2414,7 @@ for artist in artist_List:
     "bloggername": "나무처럼 걷다",
     "bloggerlink": "https://blog.naver.com/holy1002",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "[<b>방탄소년단</b> 지민] 세계를 사로잡은 힘, 지민이의 매력",
@@ -2459,7 +2423,7 @@ for artist in artist_List:
     "bloggername": "Li-Pro SerendiFilter",
     "bloggerlink": "https://blog.naver.com/tjhero",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "5일 빌보드차트 : &quot;Butter&quot;로 신기록을 세운 BTS(<b>방탄소년단</b>)",
@@ -2468,7 +2432,7 @@ for artist in artist_List:
     "bloggername": "라빈이론",
     "bloggerlink": "https://blog.naver.com/wltn3048",
     "postdate": "20210602"
-
+    
     },
     {
     "title": "[<b>방탄소년단</b> BTS] 기사 - BTS 'Butter', 편견에 맞선... ",
@@ -2477,7 +2441,7 @@ for artist in artist_List:
     "bloggername": "적과의동침",
     "bloggerlink": "https://blog.naver.com/jjanga27",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "<b>방탄소년단</b> 뷔 솔로곡 '스티그마'두버전 나란히 아마존1... ",
@@ -2486,7 +2450,7 @@ for artist in artist_List:
     "bloggername": "V positive",
     "bloggerlink": "https://blog.naver.com/rkdl0830",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "레고 <b>방탄소년단</b> BTS 다이너마이트 출시 되려나!",
@@ -2495,7 +2459,7 @@ for artist in artist_List:
     "bloggername": "Der Sinn des Lebens",
     "bloggerlink": "https://blog.naver.com/dongi0508",
     "postdate": "20210529"
-
+    
     },
     {
     "title": "<b>방탄소년단</b> BTS 덕질방법! 아미는 이렇게 팬질한다!버터... ",
@@ -2504,7 +2468,7 @@ for artist in artist_List:
     "bloggername": "스마트메이커",
     "bloggerlink": "https://blog.naver.com/simon9627",
     "postdate": "20210531"
-
+    
     },
     {
     "title": "<b>방탄 소년단</b>-Butter 가사 &amp; 해석",
@@ -2513,11 +2477,11 @@ for artist in artist_List:
     "bloggername": "쎄듀와 함께 쎄쎄쎄",
     "bloggerlink": "https://blog.naver.com/cedubook",
     "postdate": "20210525"
-
+    
     }
     ]
     }
-
+    
     BLACKPINK
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:48 +0900",
@@ -2532,7 +2496,7 @@ for artist in artist_List:
     "bloggername": "YM크린",
     "bloggerlink": "https://blog.naver.com/ysclean00",
     "postdate": "20210526"
-
+    
     },
     {
     "title": "블랙핑크(<b>BLACKPINK</b>) - 블랙핑크 온라인 콘서트 THE SHOW... ",
@@ -2541,7 +2505,7 @@ for artist in artist_List:
     "bloggername": "Jazzjin's Paradiso",
     "bloggerlink": "https://blog.naver.com/dedoeoh",
     "postdate": "20210131"
-
+    
     },
     {
     "title": "<b>BLACKPINK</b> 'How You Like That' 보란듯이",
@@ -2550,7 +2514,7 @@ for artist in artist_List:
     "bloggername": "good or fxxk",
     "bloggerlink": "https://blog.naver.com/gxxd",
     "postdate": "20210408"
-
+    
     },
     {
     "title": "<b>BLACKPINK</b>(블랙핑크) - [THE ALBUM] Album Review",
@@ -2559,7 +2523,7 @@ for artist in artist_List:
     "bloggername": "EL NAMJU",
     "bloggerlink": "https://blog.naver.com/giuu05",
     "postdate": "20210216"
-
+    
     },
     {
     "title": "블랙핑크[<b>BLACKPINK</b>] × 유엔 기후변화당사국총회[COP26]... ",
@@ -2568,7 +2532,7 @@ for artist in artist_List:
     "bloggername": "내가 빛날 시간 It is time for me to shine",
     "bloggerlink": "https://blog.naver.com/mycmy1004",
     "postdate": "20210226"
-
+    
     },
     {
     "title": "<b>BLACKPINK</b> 2021 [THE SHOW] DVD &amp; KiT VIDEO // 블랙핑크 더 쇼... ",
@@ -2577,7 +2541,7 @@ for artist in artist_List:
     "bloggername": "Own Personal Bubble",
     "bloggerlink": "https://blog.naver.com/lhs10728",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "블랙핑크 굿즈 [THESHOW] <b>BLACKPINK</b> PHOTO FRAME",
@@ -2586,7 +2550,7 @@ for artist in artist_List:
     "bloggername": "eniletik님의 블로그",
     "bloggerlink": "https://blog.naver.com/eniletik",
     "postdate": "20210602"
-
+    
     },
     {
     "title": "『블랙핑크(<b>Blackpink</b>)』 로제(Rosé) 첫 솔로곡 「GONE/Gone... ",
@@ -2595,7 +2559,7 @@ for artist in artist_List:
     "bloggername": "토플ㅇ제2외국어",
     "bloggerlink": "https://blog.naver.com/amoayhwh",
     "postdate": "20210201"
-
+    
     },
     {
     "title": "Lady Gaga 레이디 가가, <b>BLACKPINK</b> 블랙핑크 - Sour Candy... ",
@@ -2604,7 +2568,7 @@ for artist in artist_List:
     "bloggername": "SINGRY PLACE",
     "bloggerlink": "https://blog.naver.com/gkstjd1020",
     "postdate": "20210524"
-
+    
     },
     {
     "title": "<b>Blackpink</b> in my area!",
@@ -2613,13 +2577,11 @@ for artist in artist_List:
     "bloggername": "fi1ament님의 블로그",
     "bloggerlink": "https://blog.naver.com/fi1ament",
     "postdate": "20201008"
-
+    
     }
     ]
     }
-:::
-
-::: {.output .stream .stdout}
+    
     장범준
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:48 +0900",
@@ -2634,7 +2596,7 @@ for artist in artist_List:
     "bloggername": "나눔공예학원",
     "bloggerlink": "https://blog.naver.com/llstepaniall",
     "postdate": "20210502"
-
+    
     },
     {
     "title": "히든싱어6 <b>장범준</b> 탈락 은퇴송 발표 2라운드 탈락 모창능력자... ",
@@ -2643,7 +2605,7 @@ for artist in artist_List:
     "bloggername": "나의보물 패밀리정",
     "bloggerlink": "https://blog.naver.com/free7love",
     "postdate": "20201024"
-
+    
     },
     {
     "title": "버스커버스커 <b>장범준</b>의 히트곡, 대표곡",
@@ -2652,7 +2614,7 @@ for artist in artist_List:
     "bloggername": "고모군의 정치이야기",
     "bloggerlink": "https://blog.naver.com/jpk0107",
     "postdate": "20200302"
-
+    
     },
     {
     "title": "형돈이와 대준이 &quot;<b>장범준</b>에게 우리 보컬 안 밀린다...&quot;  포크... ",
@@ -2661,7 +2623,7 @@ for artist in artist_List:
     "bloggername": "enter note",
     "bloggerlink": "https://blog.naver.com/jazzkid",
     "postdate": "20210527"
-
+    
     },
     {
     "title": "히든싱어 <b>장범준</b> 최종우승자는?",
@@ -2670,7 +2632,7 @@ for artist in artist_List:
     "bloggername": "쏭앤푸드",
     "bloggerlink": "https://blog.naver.com/okbest123",
     "postdate": "20201024"
-
+    
     },
     {
     "title": "2019 KT 보야지투자라섬 1일차 후기 (<b>장범준</b>, 다이나믹듀오... ",
@@ -2679,7 +2641,7 @@ for artist in artist_List:
     "bloggername": "벤 문의 세상살이",
     "bloggerlink": "https://blog.naver.com/bennywhang",
     "postdate": "20190929"
-
+    
     },
     {
     "title": "히든싱어 6 / <b>장범준</b> 편 요약",
@@ -2688,7 +2650,7 @@ for artist in artist_List:
     "bloggername": "그림과 생활",
     "bloggerlink": "https://blog.naver.com/mauida",
     "postdate": "20201024"
-
+    
     },
     {
     "title": "히든싱어6 <b>장범준</b> 충격의 2라운드 탈락 후 제일 급하게 만든... ",
@@ -2697,7 +2659,7 @@ for artist in artist_List:
     "bloggername": "이슈모아",
     "bloggerlink": "https://blog.naver.com/kidjina1998",
     "postdate": "20201024"
-
+    
     },
     {
     "title": "<b>장범준</b> 히든싱어6 왕중왕전 이소라",
@@ -2706,7 +2668,7 @@ for artist in artist_List:
     "bloggername": "세상사&바닐라B",
     "bloggerlink": "https://blog.naver.com/werjazz",
     "postdate": "20201107"
-
+    
     },
     {
     "title": "[방송] 히든싱어6 <b>장범준</b>편 감상",
@@ -2715,11 +2677,11 @@ for artist in artist_List:
     "bloggername": "달콤한 인생",
     "bloggerlink": "https://blog.naver.com/jarlanlhd",
     "postdate": "20201024"
-
+    
     }
     ]
     }
-
+    
     오마이걸
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:49 +0900",
@@ -2734,7 +2696,7 @@ for artist in artist_List:
     "bloggername": "래미의 공간",
     "bloggerlink": "https://blog.naver.com/kml0516",
     "postdate": "20210428"
-
+    
     },
     {
     "title": "의류 및 소품 등장의 건: 조이와 <b>오마이걸</b> 던던댄스를 중심으로",
@@ -2743,7 +2705,7 @@ for artist in artist_List:
     "bloggername": "이상한 일기장",
     "bloggerlink": "https://blog.naver.com/jesperation1",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "[덕질] <b>오마이걸</b> 던던댄스 미니 8집 언박싱 같이 해요 XD",
@@ -2752,7 +2714,7 @@ for artist in artist_List:
     "bloggername": "지금 여기, 이곳에서",
     "bloggerlink": "https://blog.naver.com/dbfldjs2",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "OH MY GIRL <b>오마이걸</b> 던던댄스 (DunDun-Dance) 앨범 언박싱... ",
@@ -2761,7 +2723,7 @@ for artist in artist_List:
     "bloggername": "안녕, Kong",
     "bloggerlink": "https://blog.naver.com/kmj6142",
     "postdate": "20210529"
-
+    
     },
     {
     "title": "[리뷰] 'Dun Dun Dance'로 컴백한 컨셉장인 <b>오마이걸</b>의... ",
@@ -2770,7 +2732,7 @@ for artist in artist_List:
     "bloggername": "네잎클로버를 찾아 나선 여행자",
     "bloggerlink": "https://blog.naver.com/gangyoo87",
     "postdate": "20210511"
-
+    
     },
     {
     "title": "<b>오마이걸</b> 신곡!! 던던댄스(dun dun dance) 리뷰하기!!",
@@ -2779,7 +2741,7 @@ for artist in artist_List:
     "bloggername": "나무에스며들다 hoaken",
     "bloggerlink": "https://blog.naver.com/mecante",
     "postdate": "20210512"
-
+    
     },
     {
     "title": "<b>오마이걸</b> 아린 사주 (신축일주 연예인)",
@@ -2788,7 +2750,7 @@ for artist in artist_List:
     "bloggername": "화진사주 블로그",
     "bloggerlink": "https://blog.naver.com/hwajinsaju",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "<b>오마이걸</b> 미니 8집 앨범 (Dear OHMYGIRL) Dun Dun Dance... ",
@@ -2797,7 +2759,7 @@ for artist in artist_List:
     "bloggername": "파란이온의 it's Click",
     "bloggerlink": "https://blog.naver.com/728hdh728",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "<b>오마이걸</b> 던던댄스 앨범 곰돌이 두가지버전 포카 다 사야지... ",
@@ -2806,7 +2768,7 @@ for artist in artist_List:
     "bloggername": "현이쩡이의 즐거운 일상속으로~~",
     "bloggerlink": "https://blog.naver.com/cnnjang",
     "postdate": "20210526"
-
+    
     },
     {
     "title": "<b>오마이걸</b> 미니 8집 [Dear OHMYGIRL] 발매 기념 온라인... ",
@@ -2815,11 +2777,11 @@ for artist in artist_List:
     "bloggername": "구리구리-한성별곡",
     "bloggerlink": "https://blog.naver.com/gurygury2001",
     "postdate": "20210510"
-
+    
     }
     ]
     }
-
+    
     백예린
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:49 +0900",
@@ -2834,7 +2796,7 @@ for artist in artist_List:
     "bloggername": "다랑의 뷰티양x플레이군",
     "bloggerlink": "https://blog.naver.com/siehl",
     "postdate": "20210311"
-
+    
     },
     {
     "title": "<b>백예린</b>크림 마몽드 프로바이오틱스 세라마이드 크림으로 피부... ",
@@ -2843,7 +2805,7 @@ for artist in artist_List:
     "bloggername": "별밤의 뷰티&패션",
     "bloggerlink": "https://blog.naver.com/hanstar_94",
     "postdate": "20210324"
-
+    
     },
     {
     "title": "<b>백예린</b> 새 앨범의 차트 성적이 저조한 이유에 대해",
@@ -2852,7 +2814,7 @@ for artist in artist_List:
     "bloggername": "Going Deep",
     "bloggerlink": "https://blog.naver.com/imaginesmile",
     "postdate": "20201215"
-
+    
     },
     {
     "title": "마몽드 프로바이오틱스 세라마이드 크림 내돈내산-<b>백예린</b>... ",
@@ -2861,7 +2823,7 @@ for artist in artist_List:
     "bloggername": "Sterninsel",
     "bloggerlink": "https://blog.naver.com/diane504",
     "postdate": "20210310"
-
+    
     },
     {
     "title": "나의 1월부터 3월 ( <b>백예린</b> 앨범, LP리뷰, 증명사진, 탈색과... ",
@@ -2870,7 +2832,7 @@ for artist in artist_List:
     "bloggername": "나의 일상, 전시장",
     "bloggerlink": "https://blog.naver.com/icatlove",
     "postdate": "20210502"
-
+    
     },
     {
     "title": "마몽드 프로바이오틱스 세라마이드 크림 / <b>백예린</b> 보습크림",
@@ -2879,7 +2841,7 @@ for artist in artist_List:
     "bloggername": "블링유에 텔레파시푸시",
     "bloggerlink": "https://blog.naver.com/yukihana96",
     "postdate": "20210312"
-
+    
     },
     {
     "title": "마몽드 X <b>백예린</b> 콜라보 프로바이오틱스 세라마이드 크림 론칭!",
@@ -2888,7 +2850,7 @@ for artist in artist_List:
     "bloggername": "설탕냥이의 소소일기",
     "bloggerlink": "https://blog.naver.com/sugarcat_soo",
     "postdate": "20210322"
-
+    
     },
     {
     "title": "프로바이오틱스 세라마이드 크림 보습장벽 지켜주는 <b>백예린</b>크림",
@@ -2897,7 +2859,7 @@ for artist in artist_List:
     "bloggername": "연우로그 뷰티톡",
     "bloggerlink": "https://blog.naver.com/jej7634",
     "postdate": "20210311"
-
+    
     },
     {
     "title": "<b>백예린</b> 투명 LP 'Every letter I sent you' 매일 들어도 좋아~",
@@ -2906,7 +2868,7 @@ for artist in artist_List:
     "bloggername": "삐까뻔쩍☆",
     "bloggerlink": "https://blog.naver.com/myapangt",
     "postdate": "20210221"
-
+    
     },
     {
     "title": "<b>백예린</b> 콜라보 마몽드 프로바이오틱스 세라마이드크림... ",
@@ -2915,13 +2877,11 @@ for artist in artist_List:
     "bloggername": "치즈초콜릿의 깨알블로그:-]",
     "bloggerlink": "https://blog.naver.com/k_159500",
     "postdate": "20210311"
-
+    
     }
     ]
     }
-:::
-
-::: {.output .stream .stdout}
+    
     창모
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:49 +0900",
@@ -2936,7 +2896,7 @@ for artist in artist_List:
     "bloggername": "今を生きる",
     "bloggerlink": "https://blog.naver.com/kirito",
     "postdate": "20210126"
-
+    
     },
     {
     "title": "GENIUS (Feat. <b>창모</b>)-D.Ark(디아크)천재강사 오전B반",
@@ -2945,7 +2905,7 @@ for artist in artist_List:
     "bloggername": "신의손",
     "bloggerlink": "https://blog.naver.com/marymi1004",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "요즘은 <b>창모</b>",
@@ -2954,7 +2914,7 @@ for artist in artist_List:
     "bloggername": "새벽의 약속",
     "bloggerlink": "https://blog.naver.com/ara7679",
     "postdate": "20210517"
-
+    
     },
     {
     "title": "NC구<b>창모</b>(엔씨 구<b>창모</b>) 랩퍼 <b>창모</b>(CHANGMO) 송골매 구<b>창모</b>",
@@ -2963,7 +2923,7 @@ for artist in artist_List:
     "bloggername": "지사미 한의원",
     "bloggerlink": "https://blog.naver.com/koreadoc",
     "postdate": "20201101"
-
+    
     },
     {
     "title": "고등래퍼4 파이널 진출 웨이체드 <b>창모</b> 노윤하 패션",
@@ -2972,7 +2932,7 @@ for artist in artist_List:
     "bloggername": "아붐의 패션뷰티로그",
     "bloggerlink": "https://blog.naver.com/spdlqj9577",
     "postdate": "20210416"
-
+    
     },
     {
     "title": "박봄 - 도레미파솔 (feat. <b>창모</b>) [가사/듣기/동영상]",
@@ -2981,7 +2941,7 @@ for artist in artist_List:
     "bloggername": "by초코언니",
     "bloggerlink": "https://blog.naver.com/hywntrpjii",
     "postdate": "20210401"
-
+    
     },
     {
     "title": "고등래퍼4 출연진 넉살 <b>창모</b> PH-1 사이먼도미닉 패션 파헤치기",
@@ -2990,7 +2950,7 @@ for artist in artist_List:
     "bloggername": "차니차니여행★☆",
     "bloggerlink": "https://blog.naver.com/daechankim91",
     "postdate": "20210423"
-
+    
     },
     {
     "title": "기록 (브람스를 좋아하세요.../2020 현대문학상 수상작품집-<b>창모</b>)",
@@ -2999,7 +2959,7 @@ for artist in artist_List:
     "bloggername": "flor que flamea",
     "bloggerlink": "https://blog.naver.com/toathal",
     "postdate": "20200908"
-
+    
     },
     {
     "title": "청하 PLAY(Feat. <b>창모</b>) MV 분석",
@@ -3008,7 +2968,7 @@ for artist in artist_List:
     "bloggername": "소이보다",
     "bloggerlink": "https://blog.naver.com/ekvlsu369",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "고등래퍼4 심사위원 라인업 (염따&amp;더콰이엇, <b>창모</b>&amp;웨이체드... ",
@@ -3017,11 +2977,11 @@ for artist in artist_List:
     "bloggername": "세상을 잇는 세블리",
     "bloggerlink": "https://blog.naver.com/sanguckdu",
     "postdate": "20210329"
-
+    
     }
     ]
     }
-
+    
     볼빨간사춘기
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:50 +0900",
@@ -3036,7 +2996,7 @@ for artist in artist_List:
     "bloggername": "Table Review",
     "bloggerlink": "https://blog.naver.com/force_7",
     "postdate": "20200619"
-
+    
     },
     {
     "title": "190608 <b>볼빨간사춘기</b> 일본 데뷔 쇼케이스 콘서트 보러가다",
@@ -3045,7 +3005,7 @@ for artist in artist_List:
     "bloggername": "Life Never Felt So Good",
     "bloggerlink": "https://blog.naver.com/choongchoongchoong",
     "postdate": "20190730"
-
+    
     },
     {
     "title": "2020 아트트럭 어텀스피릿 공연관람 (<b>볼빨간사춘기</b>, 페퍼톤스... ",
@@ -3054,7 +3014,7 @@ for artist in artist_List:
     "bloggername": "신사의 일상생활 블로그",
     "bloggerlink": "https://blog.naver.com/dragonswing",
     "postdate": "20201108"
-
+    
     },
     {
     "title": "남양주 평내동 돈까스 맛집 <b>볼빨간사춘기</b>",
@@ -3063,7 +3023,7 @@ for artist in artist_List:
     "bloggername": "바이줌의 주부탐구생활 ♪",
     "bloggerlink": "https://blog.naver.com/zumdree",
     "postdate": "20200814"
-
+    
     },
     {
     "title": "<b>볼빨간사춘기</b> - 나비와 고양이(feat.백현)ㅣ플룻(플루트)... ",
@@ -3072,7 +3032,7 @@ for artist in artist_List:
     "bloggername": "MOSICA MUSIC",
     "bloggerlink": "https://blog.naver.com/silverstarca",
     "postdate": "20200605"
-
+    
     },
     {
     "title": "인간관계란? <b>볼빨간사춘기</b> 그리고 AOA 신지민 권민아",
@@ -3081,7 +3041,7 @@ for artist in artist_List:
     "bloggername": "핑크빛 가득한 아멜리에",
     "bloggerlink": "https://blog.naver.com/ameliepink",
     "postdate": "20200704"
-
+    
     },
     {
     "title": "20191229 <b>볼빨간사춘기</b> twofive 콘서트 후기",
@@ -3090,7 +3050,7 @@ for artist in artist_List:
     "bloggername": "머그컵",
     "bloggerlink": "https://blog.naver.com/core_cream",
     "postdate": "20191230"
-
+    
     },
     {
     "title": "<b>볼빨간 사춘기</b> - 나비와 고양이 Leo 기타 코드 / 타브악보... ",
@@ -3099,7 +3059,7 @@ for artist in artist_List:
     "bloggername": "통단기 : 통기타 단기완성 기타레슨",
     "bloggerlink": "https://blog.naver.com/yogoho210",
     "postdate": "20200525"
-
+    
     },
     {
     "title": "<b>볼빨간사춘기</b> 안지영,1억원대 외제차 셀프세차...궁둥이도 예쁨!~",
@@ -3108,7 +3068,7 @@ for artist in artist_List:
     "bloggername": "이슈모아",
     "bloggerlink": "https://blog.naver.com/kidjina1998",
     "postdate": "20200713"
-
+    
     },
     {
     "title": "<b>볼빨간사춘기</b>·국카스텐 공연 용인서 즐긴다…100% 자동차... ",
@@ -3117,11 +3077,11 @@ for artist in artist_List:
     "bloggername": "미디어모현 블로그",
     "bloggerlink": "https://blog.naver.com/mediamh",
     "postdate": "20201020"
-
+    
     }
     ]
     }
-
+    
     지코
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:50 +0900",
@@ -3136,7 +3096,7 @@ for artist in artist_List:
     "bloggername": "HaPpyDay_ღ",
     "bloggerlink": "https://blog.naver.com/dbflclsrn7",
     "postdate": "20210518"
-
+    
     },
     {
     "title": "- 아이유, 조수미, <b>지코</b>, 이정은, 백종원 외 7명 ★★★☆",
@@ -3145,7 +3105,7 @@ for artist in artist_List:
     "bloggername": "날마다 좋은날",
     "bloggerlink": "https://blog.naver.com/lotusksm",
     "postdate": "20210518"
-
+    
     },
     {
     "title": "노력하면 이루어져, 못말하겠어요. &lt;<b>지코</b>, 대화의 희열3&gt;",
@@ -3154,7 +3114,7 @@ for artist in artist_List:
     "bloggername": "직접 읽은 책 리뷰. 도움이 되셨으면 좋겠습니다.",
     "bloggerlink": "https://blog.naver.com/cksalsdbs",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "에스<b>지코</b> 클렌징마일드폼 온가족이 사용하는 저자극 약산성폼",
@@ -3163,7 +3123,7 @@ for artist in artist_List:
     "bloggername": "쎄이지’s Beauty review",
     "bloggerlink": "https://blog.naver.com/sunnyya314",
     "postdate": "20201021"
-
+    
     },
     {
     "title": "다용도 <b>지코</b>(G-KO) 살균기 사용 후기",
@@ -3172,7 +3132,7 @@ for artist in artist_List:
     "bloggername": "란디의 하늘색 꿈",
     "bloggerlink": "https://blog.naver.com/fksel33",
     "postdate": "20200423"
-
+    
     },
     {
     "title": "사는 게 정답이 있으려나? by 아이유,<b>지코</b> 외",
@@ -3181,7 +3141,7 @@ for artist in artist_List:
     "bloggername": "달빛서가 - 달빛이 머무르는 서가",
     "bloggerlink": "https://blog.naver.com/wonmipoto",
     "postdate": "20210520"
-
+    
     },
     {
     "title": "[Digging] <b>지코</b> - 1집 Thinking, 미니앨범 2집 Television",
@@ -3190,7 +3150,7 @@ for artist in artist_List:
     "bloggername": "탱이의 블로그",
     "bloggerlink": "https://blog.naver.com/taeng2papa",
     "postdate": "20210530"
-
+    
     },
     {
     "title": "Rx신발 <b>지코</b>일, 기능성 발 편한 신발.운동화.실내화",
@@ -3199,7 +3159,7 @@ for artist in artist_List:
     "bloggername": "지코일 RX 신발 Z-CoiL",
     "bloggerlink": "https://blog.naver.com/rx_footwear",
     "postdate": "20210531"
-
+    
     },
     {
     "title": "미국 프로보트 브러쉬리스모터 적용 전동 보트 미스<b>지코</b>17 2.4... ",
@@ -3208,7 +3168,7 @@ for artist in artist_List:
     "bloggername": "RC카 자동차 권총 쇼핑몰 유레카샵 WWW.11U.CO.KR",
     "bloggerlink": "https://blog.naver.com/zmemory",
     "postdate": "20210424"
-
+    
     },
     {
     "title": "강다니엘X<b>지코</b> 펩시 콜라보 Refresh ♪",
@@ -3217,13 +3177,11 @@ for artist in artist_List:
     "bloggername": "天衣無縫",
     "bloggerlink": "https://blog.naver.com/snsskfkrjdwn",
     "postdate": "20200424"
-
+    
     }
     ]
     }
-:::
-
-::: {.output .stream .stdout}
+    
     레드벨벳
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:50 +0900",
@@ -3238,7 +3196,7 @@ for artist in artist_List:
     "bloggername": "ʀᴇᴅ ᴠᴇʟᴠᴇᴛ ғᴏʀᴇᴠᴇʀ°",
     "bloggerlink": "https://blog.naver.com/rensea2309",
     "postdate": "20210406"
-
+    
     },
     {
     "title": "라비 <b>레드벨벳</b> 성희롱 논란이 된 가사 및 사과문",
@@ -3247,7 +3205,7 @@ for artist in artist_List:
     "bloggername": "하루하루 긍정적으로",
     "bloggerlink": "https://blog.naver.com/0m0m0m0m0",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "<b>레드벨벳</b> 조이 안녕 뮤비 니트 가디건 정보 : 스컬프터 크로쉐... ",
@@ -3256,7 +3214,7 @@ for artist in artist_List:
     "bloggername": "연우로그 뷰티톡",
     "bloggerlink": "https://blog.naver.com/jej7634",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "라비→<b>레드벨벳</b> '충격 성희롱... 삭제+ <b>레드벨벳</b> 예리... ",
@@ -3265,7 +3223,7 @@ for artist in artist_List:
     "bloggername": "크리드포스트",
     "bloggerlink": "https://blog.naver.com/rlqhstyle",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "&quot;<b>레드벨벳</b>→SM 이수만 칭찬&quot;…조이, 7년만의 솔로 자신감",
@@ -3274,7 +3232,7 @@ for artist in artist_List:
     "bloggername": "바다만큼 이야기",
     "bloggerlink": "https://blog.naver.com/azaleass",
     "postdate": "20210531"
-
+    
     },
     {
     "title": "⭐️ 라비 <b>레드벨벳</b> 성희롱 가사 논란 이유 로지스(ROSES)... ",
@@ -3283,7 +3241,7 @@ for artist in artist_List:
     "bloggername": "모모와이_MOMOY",
     "bloggerlink": "https://blog.naver.com/gomsune1",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "폰즈의 NEW 모델 <b>레드벨벳</b> 웬디와 모공케어 클렌징",
@@ -3292,7 +3250,7 @@ for artist in artist_List:
     "bloggername": "귤사온희의 스타일룸",
     "bloggerlink": "https://blog.naver.com/3010462",
     "postdate": "20210513"
-
+    
     },
     {
     "title": "라비, 가사 성희롱 논란 “<b>레드벨벳</b>에 사과…음원 내릴 것”",
@@ -3301,7 +3259,7 @@ for artist in artist_List:
     "bloggername": "정현법사",
     "bloggerlink": "https://blog.naver.com/bubsa0701",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "[문정 카페] 빌리엔젤 <b>레드벨벳</b> 케이크",
@@ -3310,7 +3268,7 @@ for artist in artist_List:
     "bloggername": "갯토리, 순간을 소중히",
     "bloggerlink": "https://blog.naver.com/torymimi",
     "postdate": "20210531"
-
+    
     },
     {
     "title": "라비 <b>레드벨벳</b> 성희롱 가사 논란 멤버들에게 사과 음원 삭제",
@@ -3319,11 +3277,11 @@ for artist in artist_List:
     "bloggername": "웃는햇님",
     "bloggerlink": "https://blog.naver.com/ijoao",
     "postdate": "20210604"
-
+    
     }
     ]
     }
-
+    
     태연
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:51 +0900",
@@ -3338,7 +3296,7 @@ for artist in artist_List:
     "bloggername": "바다만큼 이야기",
     "bloggerlink": "https://blog.naver.com/azaleass",
     "postdate": "20210508"
-
+    
     },
     {
     "title": "송내역미용실 엔캐슬헤어 <b>태연</b>투톤 염색 완성",
@@ -3347,7 +3305,7 @@ for artist in artist_List:
     "bloggername": "////메디포맨울산점",
     "bloggerlink": "https://blog.naver.com/pinkyboo69",
     "postdate": "20210104"
-
+    
     },
     {
     "title": "<b>태연</b> 콜라겐 까다롭게 고른 올앳미 콜라겐3270",
@@ -3356,7 +3314,7 @@ for artist in artist_List:
     "bloggername": "콩자언니의 Life Style",
     "bloggerlink": "https://blog.naver.com/yeseung3007",
     "postdate": "20210420"
-
+    
     },
     {
     "title": "<b>태연</b> 콜라겐! 올앳미 콜라겐3270",
@@ -3365,7 +3323,7 @@ for artist in artist_List:
     "bloggername": "곰세마리의 앤돌핀 만땅 충천소 날아라 슝슝슝",
     "bloggerlink": "https://blog.naver.com/0813dcba",
     "postdate": "20210421"
-
+    
     },
     {
     "title": "<b>태연</b> 강아지 견종 제로, 진저 평균 분양가",
@@ -3374,7 +3332,7 @@ for artist in artist_List:
     "bloggername": "개가천선",
     "bloggerlink": "https://blog.naver.com/skyzzang011",
     "postdate": "20210602"
-
+    
     },
     {
     "title": "나혼자산다 샤이니 키 나이 종현 사망 언급 소녀시대 <b>태연</b>... ",
@@ -3383,7 +3341,7 @@ for artist in artist_List:
     "bloggername": "이슈모아",
     "bloggerlink": "https://blog.naver.com/kidjina1998",
     "postdate": "20210320"
-
+    
     },
     {
     "title": "놀라운 토요일 도레미마켓 <b>태연</b> 패션 다나버튼 스와로브스키... ",
@@ -3392,7 +3350,7 @@ for artist in artist_List:
     "bloggername": "우주인과 짱가네 지구별 이야기",
     "bloggerlink": "https://blog.naver.com/oddangzzigae",
     "postdate": "20210516"
-
+    
     },
     {
     "title": "<b>태연</b>과 열애설 라비(빅스), 레드벨벳에 대한 선정적 가사 논란... ",
@@ -3401,7 +3359,7 @@ for artist in artist_List:
     "bloggername": "☆*:.My Sweet Haven.:*☆",
     "bloggerlink": "https://blog.naver.com/nadiatear0",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "이너뷰티 <b>태연</b>이 선택한 올앳미 콜라겐3270 최대함량으로... ",
@@ -3410,7 +3368,7 @@ for artist in artist_List:
     "bloggername": "엔제린지나's Life story ★",
     "bloggerlink": "https://blog.naver.com/loveholic_",
     "postdate": "20210420"
-
+    
     },
     {
     "title": "화명동원룸청소업체 <b>태연</b>원룸청소편입니다.",
@@ -3419,11 +3377,11 @@ for artist in artist_List:
     "bloggername": "퍼팩트 크리닝",
     "bloggerlink": "https://blog.naver.com/lajiafen",
     "postdate": "20210601"
-
+    
     }
     ]
     }
-
+    
     싹쓰리
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:51 +0900",
@@ -3438,7 +3396,7 @@ for artist in artist_List:
     "bloggername": "kbar(케이바)",
     "bloggerlink": "https://blog.naver.com/geniussehee",
     "postdate": "20210430"
-
+    
     },
     {
     "title": "[배달/치킨] 착한 치킨브랜드 치킨매니아 <b>싹쓰리</b>치킨세트",
@@ -3447,7 +3405,7 @@ for artist in artist_List:
     "bloggername": "맛선생 이설렘의 맛탐험",
     "bloggerlink": "https://blog.naver.com/hoisulhi",
     "postdate": "20210426"
-
+    
     },
     {
     "title": "맛있는 녀석들 솥뚜껑 삼겹살 - <b>싹쓰리</b> 솥뚜껑김치삼겹살... ",
@@ -3456,7 +3414,7 @@ for artist in artist_List:
     "bloggername": "세콰노의 머거머거",
     "bloggerlink": "https://blog.naver.com/gypsyone",
     "postdate": "20210602"
-
+    
     },
     {
     "title": "온 가족이 즐기는 야식메뉴추천 <b>싹쓰리</b>치킨세트",
@@ -3465,7 +3423,7 @@ for artist in artist_List:
     "bloggername": "U-vely의 연필통",
     "bloggerlink": "https://blog.naver.com/2artshow",
     "postdate": "20210419"
-
+    
     },
     {
     "title": "놀면뭐하니 이효리 비 <b>싹쓰리</b> 뜻 혼성그룹 이름 싹3 지린다... ",
@@ -3474,7 +3432,7 @@ for artist in artist_List:
     "bloggername": "오늘의 추천아이템",
     "bloggerlink": "https://blog.naver.com/chesungmin",
     "postdate": "20200606"
-
+    
     },
     {
     "title": "즐거웠던 캠핑여행 여름 바닷가 갯벌조개 <b>싹쓰리</b>",
@@ -3483,7 +3441,7 @@ for artist in artist_List:
     "bloggername": "케니의 일상다반사",
     "bloggerlink": "https://blog.naver.com/kenykim70",
     "postdate": "20200719"
-
+    
     },
     {
     "title": "야식메뉴 추천 치맥♥ 치킨매니아 <b>싹쓰리</b>치킨세트",
@@ -3492,7 +3450,7 @@ for artist in artist_List:
     "bloggername": "기억, 추억, 생각",
     "bloggerlink": "https://blog.naver.com/sodam3826",
     "postdate": "20210427"
-
+    
     },
     {
     "title": "배달음식 추천 치킨매니아 <b>싹쓰리</b> 세트 제 점수는요!",
@@ -3501,7 +3459,7 @@ for artist in artist_List:
     "bloggername": "궤변술사의 쓸모있는 잡담 블로그..",
     "bloggerlink": "https://blog.naver.com/geniusm",
     "postdate": "20210415"
-
+    
     },
     {
     "title": "[배달음식추천] 치킨매니아 <b>싹쓰리</b>치킨",
@@ -3510,7 +3468,7 @@ for artist in artist_List:
     "bloggername": "다크윤의 맛집이야기♥",
     "bloggerlink": "https://blog.naver.com/darkyoon85",
     "postdate": "20210423"
-
+    
     },
     {
     "title": "놀면뭐하니 환불원정대 네이밍센스로 <b>싹쓰리</b>",
@@ -3519,13 +3477,11 @@ for artist in artist_List:
     "bloggername": "초록민_다이어리",
     "bloggerlink": "https://blog.naver.com/wh77bear",
     "postdate": "20200831"
-
+    
     }
     ]
     }
-:::
-
-::: {.output .stream .stdout}
+    
     마마무
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:52 +0900",
@@ -3540,7 +3496,7 @@ for artist in artist_List:
     "bloggername": "모모와이_MOMOY",
     "bloggerlink": "https://blog.naver.com/gomsune1",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "<b>마마무</b> 'Where Are We Now'] 휘인 사주",
@@ -3549,7 +3505,7 @@ for artist in artist_List:
     "bloggername": "홍대 혜안 사주타로",
     "bloggerlink": "https://blog.naver.com/juhom03",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "휘인(<b>마마무</b>), 이승철, 써니, 우기, 케이(러블리즈)의 아이유... ",
@@ -3558,7 +3514,7 @@ for artist in artist_List:
     "bloggername": "I U H O L I C",
     "bloggerlink": "https://blog.naver.com/smotherguy",
     "postdate": "20210506"
-
+    
     },
     {
     "title": "<b>마마무</b>와 짱절미, 어바웃펫 절미네민박에서 볼수 있어요!",
@@ -3567,7 +3523,7 @@ for artist in artist_List:
     "bloggername": "세지쓰 라이프스타일을 담다. 사진찍는개엄마™",
     "bloggerlink": "https://blog.naver.com/forceofwill",
     "postdate": "20210528"
-
+    
     },
     {
     "title": "사장님 귀는 당나귀 귀 108회 양치승, <b>마마무</b> 솔라 체지방 얼마... ",
@@ -3576,7 +3532,7 @@ for artist in artist_List:
     "bloggername": "Today & Tomorrow",
     "bloggerlink": "https://blog.naver.com/mamy0227",
     "postdate": "20210516"
-
+    
     },
     {
     "title": "<b>마마무</b> 솔라 나이 키 노출증 체지방 양치승 체육관 위치... ",
@@ -3585,7 +3541,7 @@ for artist in artist_List:
     "bloggername": "Bon Appetit & Posting",
     "bloggerlink": "https://blog.naver.com/kyongil1228",
     "postdate": "20210516"
-
+    
     },
     {
     "title": "사장님 귀는 당나귀 귀 <b>마마무</b> 솔라 나이 인바디 검사 돼지... ",
@@ -3594,7 +3550,7 @@ for artist in artist_List:
     "bloggername": "RIA's 링링's",
     "bloggerlink": "https://blog.naver.com/cwmylee",
     "postdate": "20210516"
-
+    
     },
     {
     "title": "2021년 6월 컴백 아이돌 가수 라인업 - <b>마마무</b>, 엑소, 트와이스... ",
@@ -3603,7 +3559,7 @@ for artist in artist_List:
     "bloggername": "☆*:.My Sweet Haven.:*☆",
     "bloggerlink": "https://blog.naver.com/nadiatear0",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "내돈내산 제주 말고기 맛집 <b>마마무</b>말가든 B코스",
@@ -3612,7 +3568,7 @@ for artist in artist_List:
     "bloggername": "JUYALAND (ღ'ᴗ'ღ)",
     "bloggerlink": "https://blog.naver.com/skdaks5042",
     "postdate": "20210312"
-
+    
     },
     {
     "title": "어바웃펫 짱절미 절미네민박 <b>마마무</b>가 놀러온대요",
@@ -3621,11 +3577,11 @@ for artist in artist_List:
     "bloggername": "빛나는 인생",
     "bloggerlink": "https://blog.naver.com/myday2227",
     "postdate": "20210528"
-
+    
     }
     ]
     }
-
+    
     크러쉬
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:52 +0900",
@@ -3640,7 +3596,7 @@ for artist in artist_List:
     "bloggername": "창 달린 방",
     "bloggerlink": "https://blog.naver.com/zaqw1221",
     "postdate": "20210503"
-
+    
     },
     {
     "title": "오빠 <b>크러쉬</b> 5",
@@ -3649,7 +3605,7 @@ for artist in artist_List:
     "bloggername": "Dear. mine",
     "bloggerlink": "https://blog.naver.com/writerjin01",
     "postdate": "20210531"
-
+    
     },
     {
     "title": "홈술 혼술 하기 좋은 피치<b>크러쉬</b> 쉐이킷 수제 칵테일키트",
@@ -3658,7 +3614,7 @@ for artist in artist_List:
     "bloggername": "럭키뚜래블",
     "bloggerlink": "https://blog.naver.com/dlditgh999",
     "postdate": "20210516"
-
+    
     },
     {
     "title": "웨딩밴드 대장정~ 최종 pick은 샤넬 코코<b>크러쉬</b> 플래티넘",
@@ -3667,7 +3623,7 @@ for artist in artist_List:
     "bloggername": "일상 기록 모음집,",
     "bloggerlink": "https://blog.naver.com/daru_pin",
     "postdate": "20210307"
-
+    
     },
     {
     "title": "홈파티 칵테일키트 [쉐이킷 피치<b>크러쉬</b>]",
@@ -3676,7 +3632,7 @@ for artist in artist_List:
     "bloggername": "술마시는 일상",
     "bloggerlink": "https://blog.naver.com/wolfin",
     "postdate": "20210517"
-
+    
     },
     {
     "title": "안양예술공원 파스쿠찌 베리 트로피칼 <b>크러쉬</b>",
@@ -3685,7 +3641,7 @@ for artist in artist_List:
     "bloggername": "홍련화",
     "bloggerlink": "https://blog.naver.com/yeunhap_steel",
     "postdate": "20210402"
-
+    
     },
     {
     "title": "팁토 Tip toe - <b>크러쉬</b>(Crush) ft.이하이(Lee hi) [가사/댄스]",
@@ -3694,7 +3650,7 @@ for artist in artist_List:
     "bloggername": ":: Dancing Yogini ::",
     "bloggerlink": "https://blog.naver.com/kektmf",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "공차 신메뉴 복숭아 쥬얼리 요구르트 <b>크러쉬</b> 솔직 리뷰",
@@ -3703,7 +3659,7 @@ for artist in artist_List:
     "bloggername": "재희의 즐거움나누기♪",
     "bloggerlink": "https://blog.naver.com/onew54",
     "postdate": "20210512"
-
+    
     },
     {
     "title": "루나 톤<b>크러쉬</b> 아이섀도우 팔레트, 쿨톤 꿀조합까지?",
@@ -3712,7 +3668,7 @@ for artist in artist_List:
     "bloggername": "ㄷㅕ미월드",
     "bloggerlink": "https://blog.naver.com/gorm12",
     "postdate": "20210405"
-
+    
     },
     {
     "title": "루나 톤<b>크러쉬</b> 섀도우 팔레트, 래쉬 익스트림 픽싱카라",
@@ -3721,11 +3677,11 @@ for artist in artist_List:
     "bloggername": "♥아이린토 다락방♥",
     "bloggerlink": "https://blog.naver.com/rinto0916",
     "postdate": "20210404"
-
+    
     }
     ]
     }
-
+    
     청하
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:52 +0900",
@@ -3740,7 +3696,7 @@ for artist in artist_List:
     "bloggername": "아돈띵소, i dont think so",
     "bloggerlink": "https://blog.naver.com/gkfn012",
     "postdate": "20210403"
-
+    
     },
     {
     "title": "수준 높은 여의도 횟집 <b>청하</b>♡",
@@ -3749,7 +3705,7 @@ for artist in artist_List:
     "bloggername": "케이부부의 달콤한 이야기_♡",
     "bloggerlink": "https://blog.naver.com/cateye99",
     "postdate": "20210513"
-
+    
     },
     {
     "title": "<b>청하</b>님을 겨냥한 디자인컬러 <b>청하</b>팬까페분들 보고 있나요?",
@@ -3758,7 +3714,7 @@ for artist in artist_List:
     "bloggername": "머릿결 살리는 l 컬러리스트 엘브라운 신요한",
     "bloggerlink": "https://blog.naver.com/shindong9996",
     "postdate": "20210529"
-
+    
     },
     {
     "title": "광주미용실 <b>청하</b>쌤께 관리받고 왔어요",
@@ -3767,7 +3723,7 @@ for artist in artist_List:
     "bloggername": "#맨즈업남성의원",
     "bloggerlink": "https://blog.naver.com/iamkdj",
     "postdate": "20210113"
-
+    
     },
     {
     "title": "'21 상반기 아이돌 앨범 결산 [단평] - 2월 / 샤이니, <b>청하</b> 외",
@@ -3776,7 +3732,7 @@ for artist in artist_List:
     "bloggername": "Rainy Tears",
     "bloggerlink": "https://blog.naver.com/rlawnsgur118",
     "postdate": "20210501"
-
+    
     },
     {
     "title": "소찌개와 두루치기 <b>청하</b> 시장식육식당  [경북 포항 맛집]",
@@ -3785,7 +3741,7 @@ for artist in artist_List:
     "bloggername": "구르메 달 가드시",
     "bloggerlink": "https://blog.naver.com/bluedaisy706",
     "postdate": "20210525"
-
+    
     },
     {
     "title": "가수 <b>청하</b>가 선택한 뻐꾸기 인테리어♡/<b>청하</b> 집 인테리어♡",
@@ -3794,7 +3750,7 @@ for artist in artist_List:
     "bloggername": "뻐꾸기 인테리어",
     "bloggerlink": "https://blog.naver.com/lali8122",
     "postdate": "20210420"
-
+    
     },
     {
     "title": "에버조이 건식 반신욕기 <b>청하</b>도 쓰더라! 내돈내산 후기",
@@ -3803,7 +3759,7 @@ for artist in artist_List:
     "bloggername": "사슴이언니 태희의 블로그",
     "bloggerlink": "https://blog.naver.com/xogml1814",
     "postdate": "20210408"
-
+    
     },
     {
     "title": "영암 맛집 <b>청하</b>식당, 나주 맛집 청해연, 그리고 벚꽃구경",
@@ -3812,7 +3768,7 @@ for artist in artist_List:
     "bloggername": "류일영 영어 스튜디오",
     "bloggerlink": "https://blog.naver.com/teacherr10",
     "postdate": "20210401"
-
+    
     },
     {
     "title": "<b>청하</b>쥐손이 대신 쥐손이키우기",
@@ -3821,13 +3777,11 @@ for artist in artist_List:
     "bloggername": "창조를 꿈꾸는 나",
     "bloggerlink": "https://blog.naver.com/sj990101",
     "postdate": "20210504"
-
+    
     }
     ]
     }
-:::
-
-::: {.output .stream .stdout}
+    
     오반
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:52 +0900",
@@ -3842,7 +3796,7 @@ for artist in artist_List:
     "bloggername": "시즈마켓 * 시즈의 취미생활 노트",
     "bloggerlink": "https://blog.naver.com/kokoma0131",
     "postdate": "20210109"
-
+    
     },
     {
     "title": "드래곤볼 제노버스2 , 손오공 미래 <b>오반</b> 부자 에네르기파 공개!",
@@ -3851,7 +3805,7 @@ for artist in artist_List:
     "bloggername": "에레키맨의 무겐 블로그",
     "bloggerlink": "https://blog.naver.com/ptj0969",
     "postdate": "20210319"
-
+    
     },
     {
     "title": "<b>오반</b>, 깜찍이가 되다!!! - 드래곤볼 월콜 피규어 : 어린 <b>오반</b>... ",
@@ -3860,7 +3814,7 @@ for artist in artist_List:
     "bloggername": "H u N o o",
     "bloggerlink": "https://blog.naver.com/hunoo_83",
     "postdate": "20210211"
-
+    
     },
     {
     "title": "롯데마트에서 탈리스커, <b>오반</b>14, 싱글톤, 조니워커 더블블랙 등... ",
@@ -3869,7 +3823,7 @@ for artist in artist_List:
     "bloggername": "금주의 체험",
     "bloggerlink": "https://blog.naver.com/zaaboo",
     "postdate": "20210515"
-
+    
     },
     {
     "title": "OVAN(<b>오반</b>) _ I Need You(어떻게 지내)",
@@ -3878,7 +3832,7 @@ for artist in artist_List:
     "bloggername": "냥이가 좋아요",
     "bloggerlink": "https://blog.naver.com/chzhskfro",
     "postdate": "20201118"
-
+    
     },
     {
     "title": "세종시 보람동 맛집 배달킹안춘배 볶음의정석 똥반 <b>오반</b>의 정석... ",
@@ -3887,7 +3841,7 @@ for artist in artist_List:
     "bloggername": "세종시 조치원 동양킥복싱 무에타이",
     "bloggerlink": "https://blog.naver.com/tpqms54",
     "postdate": "20210408"
-
+    
     },
     {
     "title": "드래곤볼 제일복권 &lt;지구를 지키는 전사들&gt; A상 오공 &amp; <b>오반</b>... ",
@@ -3896,7 +3850,7 @@ for artist in artist_List:
     "bloggername": "격투기와 피규어의 안어울리는 조합, 그리고 일상쪼금",
     "bloggerlink": "https://blog.naver.com/u1000wp",
     "postdate": "20210403"
-
+    
     },
     {
     "title": "제일복권 드래곤볼 EX 지구를 지키는 전사들 A상 손오공 <b>오반</b>... ",
@@ -3905,7 +3859,7 @@ for artist in artist_List:
     "bloggername": "Paper film의 잡블로그",
     "bloggerlink": "https://blog.naver.com/kyty77",
     "postdate": "20210407"
-
+    
     },
     {
     "title": "music#9 <b>오반</b>(OVAN) &lt;안아줘&gt; :: 함께 있어도 혼자 있는 것... ",
@@ -3914,7 +3868,7 @@ for artist in artist_List:
     "bloggername": "다시, 봄",
     "bloggerlink": "https://blog.naver.com/donumm",
     "postdate": "20210526"
-
+    
     },
     {
     "title": "글랜드로낙12년 / 글렌피딕15년 / <b>오반</b>14년 비교 시음기",
@@ -3923,11 +3877,11 @@ for artist in artist_List:
     "bloggername": "카일리안의 블로그 - Aemaeth",
     "bloggerlink": "https://blog.naver.com/caelian",
     "postdate": "20201206"
-
+    
     }
     ]
     }
-
+    
     조정석
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:53 +0900",
@@ -3942,7 +3896,7 @@ for artist in artist_List:
     "bloggername": "보라의 리뷰박스",
     "bloggerlink": "https://blog.naver.com/bora871217",
     "postdate": "20210304"
-
+    
     },
     {
     "title": "<b>조정석</b> 자담치킨 맵슐랭 생그라나 두가지 먹어본 후기",
@@ -3951,7 +3905,7 @@ for artist in artist_List:
     "bloggername": "If you♡",
     "bloggerlink": "https://blog.naver.com/00sweetlove",
     "postdate": "20201231"
-
+    
     },
     {
     "title": "<b>조정석</b> 자담치킨 맵슐랭 후기 (+우유튀김)",
@@ -3960,7 +3914,7 @@ for artist in artist_List:
     "bloggername": "ᴍɪɴɢ ʙᴇᴀᴜᴛʏ ʙʟᴏɢ",
     "bloggerlink": "https://blog.naver.com/rrsnow",
     "postdate": "20200620"
-
+    
     },
     {
     "title": "에어데이즈블랙 <b>조정석</b>마스크 새부리형 사이즈",
@@ -3969,7 +3923,7 @@ for artist in artist_List:
     "bloggername": "초록민_다이어리",
     "bloggerlink": "https://blog.naver.com/wh77bear",
     "postdate": "20210526"
-
+    
     },
     {
     "title": "<b>조정석</b>마스크 에어데이즈 KF94 마스크 귀편한착용감 내 스타일~",
@@ -3978,7 +3932,7 @@ for artist in artist_List:
     "bloggername": "은료리 블로그",
     "bloggerlink": "https://blog.naver.com/eunryori_",
     "postdate": "20210114"
-
+    
     },
     {
     "title": "<b>조정석</b>마스크 새부리형이라 숨쉬기 편한 에어데이즈",
@@ -3987,7 +3941,7 @@ for artist in artist_List:
     "bloggername": "게으름뱅이그녀의 패션,뷰티",
     "bloggerlink": "https://blog.naver.com/meesoda",
     "postdate": "20201224"
-
+    
     },
     {
     "title": "<b>조정석</b> 영어 얼마나 발전한 걸까?",
@@ -3996,7 +3950,7 @@ for artist in artist_List:
     "bloggername": "야나두 영어회화 공식블로그",
     "bloggerlink": "https://blog.naver.com/yanadooblog",
     "postdate": "20200122"
-
+    
     },
     {
     "title": "오디오북 멜론과 <b>조정석</b>이 함께하는 밀리의서재",
@@ -4005,7 +3959,7 @@ for artist in artist_List:
     "bloggername": "부지런한 이간세",
     "bloggerlink": "https://blog.naver.com/wltjs0252",
     "postdate": "20210406"
-
+    
     },
     {
     "title": "<b>조정석</b>마스크 에어데이즈 새부리형이라 숨쉬기도 편해.",
@@ -4014,7 +3968,7 @@ for artist in artist_List:
     "bloggername": "쿠굥이 뷰티&패션 라이프로그",
     "bloggerlink": "https://blog.naver.com/serena914",
     "postdate": "20210114"
-
+    
     },
     {
     "title": "<b>조정석</b>처럼 써봐! 에어데이즈 KF94 새부리형마스크",
@@ -4023,11 +3977,11 @@ for artist in artist_List:
     "bloggername": "쭈's Diary",
     "bloggerlink": "https://blog.naver.com/sungdevilsh",
     "postdate": "20201224"
-
+    
     }
     ]
     }
-
+    
     규현
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:53 +0900",
@@ -4042,7 +3996,7 @@ for artist in artist_List:
     "bloggername": "나의 생각, 너의 기억",
     "bloggerlink": "https://blog.naver.com/happy13boy",
     "postdate": "20210515"
-
+    
     },
     {
     "title": "[日常] 삼선동 카페 더홈서울, <b>규현</b> 커피 뮤비 촬영장소 덕질... ",
@@ -4051,7 +4005,7 @@ for artist in artist_List:
     "bloggername": "14P 와가마마 레코멘",
     "bloggerlink": "https://blog.naver.com/jazzmate",
     "postdate": "20210424"
-
+    
     },
     {
     "title": "<b>규현</b>아 15주년 축하행 (더벤티 이벤트를 가보았어여~^^)",
@@ -4060,7 +4014,7 @@ for artist in artist_List:
     "bloggername": "마요펭기니의 뽀로그~♡",
     "bloggerlink": "https://blog.naver.com/barunhjcom",
     "postdate": "20210527"
-
+    
     },
     {
     "title": "유스케와 <b>규현</b>",
@@ -4069,7 +4023,7 @@ for artist in artist_List:
     "bloggername": "tcbm2014님의블로그",
     "bloggerlink": "https://blog.naver.com/tcbm2014",
     "postdate": "20210514"
-
+    
     },
     {
     "title": "시즌2 서울대 김헌 교수 네로 황제 (MC 이혜성 은지원 <b>규현</b>)",
@@ -4078,7 +4032,7 @@ for artist in artist_List:
     "bloggername": "웃는햇님",
     "bloggerlink": "https://blog.naver.com/ijoao",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "벌거벗은 세계사2 네로 황제 로마제국 김헌 교수 <b>규현</b> 나이... ",
@@ -4087,7 +4041,7 @@ for artist in artist_List:
     "bloggername": "Bon Appetit & Posting",
     "bloggerlink": "https://blog.naver.com/kyongil1228",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "팬텀 대기실 인터뷰 - <b>규현</b> 편, + 신영숙 칼롯 인터뷰",
@@ -4096,7 +4050,7 @@ for artist in artist_List:
     "bloggername": "SUPER JUNIOR",
     "bloggerlink": "https://blog.naver.com/lemonfair_3",
     "postdate": "20210528"
-
+    
     },
     {
     "title": "뮤:시즌 8회 팬텀 mc <b>규현</b>",
@@ -4105,7 +4059,7 @@ for artist in artist_List:
     "bloggername": "오늘도 달려본다",
     "bloggerlink": "https://blog.naver.com/ejrgn2",
     "postdate": "20210517"
-
+    
     },
     {
     "title": "<b>규현</b> 깐풍두부  에어프라이어 두부요리 만들기",
@@ -4114,7 +4068,7 @@ for artist in artist_List:
     "bloggername": "초코's happy table",
     "bloggerlink": "https://blog.naver.com/mildek",
     "postdate": "20210303"
-
+    
     },
     {
     "title": "<b>규현</b>, 임선혜의 뮤지컬 팬텀(21.04.24.)",
@@ -4123,13 +4077,11 @@ for artist in artist_List:
     "bloggername": "샹's blog",
     "bloggerlink": "https://blog.naver.com/rainbow_psh",
     "postdate": "20210425"
-
+    
     }
     ]
     }
-:::
-
-::: {.output .stream .stdout}
+    
     ITZY
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:53 +0900",
@@ -4144,7 +4096,7 @@ for artist in artist_List:
     "bloggername": "바다만큼 이야기",
     "bloggerlink": "https://blog.naver.com/azaleass",
     "postdate": "20210503"
-
+    
     },
     {
     "title": "신수동 필라테스와 코어 강화 후 걸그룹 있지(<b>ITZY</b>) 안무... ",
@@ -4153,7 +4105,7 @@ for artist in artist_List:
     "bloggername": "리본필라테스 공덕",
     "bloggerlink": "https://blog.naver.com/tldk342436",
     "postdate": "20210510"
-
+    
     },
     {
     "title": "골목식당 <b>ITZY</b> 있지 예지 리아 류진 채령 유나 나이 프로필... ",
@@ -4162,7 +4114,7 @@ for artist in artist_List:
     "bloggername": "모아봐요! 리뷰의숲",
     "bloggerlink": "https://blog.naver.com/seokks0919",
     "postdate": "20210505"
-
+    
     },
     {
     "title": "커버댄스 있지 <b>ITZY</b> 마피아 나하은의 피날레로 마무리한... ",
@@ -4171,7 +4123,7 @@ for artist in artist_List:
     "bloggername": "모델은지와 함께 만들어가는 엄마표밥상",
     "bloggerlink": "https://blog.naver.com/yuneunji09",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "백종원의 골목식당 오류동 있지(<b>ITZY</b>)감자옹심이집 부대찌개... ",
@@ -4180,7 +4132,7 @@ for artist in artist_List:
     "bloggername": "웃는햇님",
     "bloggerlink": "https://blog.naver.com/ijoao",
     "postdate": "20210505"
-
+    
     },
     {
     "title": "<b>ITZY</b>(있지) Guess Who 앨범 초동 기록",
@@ -4189,7 +4141,7 @@ for artist in artist_List:
     "bloggername": "워렌넝구의 주식투자",
     "bloggerlink": "https://blog.naver.com/khiro38",
     "postdate": "20210505"
-
+    
     },
     {
     "title": "LG트윈스 1열 직관후기 + <b>ITZY</b> 시구/잔망루피 구경",
@@ -4198,7 +4150,7 @@ for artist in artist_List:
     "bloggername": "꿈 많은 직장인의 하루",
     "bloggerlink": "https://blog.naver.com/gogojinyeah",
     "postdate": "20210531"
-
+    
     },
     {
     "title": "[한국] <b>ITZY</b> 잇지 유나 레전드 사진, 움짤",
@@ -4207,7 +4159,7 @@ for artist in artist_List:
     "bloggername": "Hwoarang Life Diary",
     "bloggerlink": "https://blog.naver.com/hwoarangx2",
     "postdate": "20210511"
-
+    
     },
     {
     "title": "<b>ITZY</b> 리아 진짜 장난 아니네",
@@ -4216,7 +4168,7 @@ for artist in artist_List:
     "bloggername": "⑤ 오박사 블로그",
     "bloggerlink": "https://blog.naver.com/ojh919",
     "postdate": "20210523"
-
+    
     },
     {
     "title": "<b>ITZY</b>(있지) 마피아 인더모닝 가사,  커버댄스",
@@ -4225,11 +4177,11 @@ for artist in artist_List:
     "bloggername": "TOZ DANCE CENTER 토즈댄스센터",
     "bloggerlink": "https://blog.naver.com/dmxer",
     "postdate": "20210513"
-
+    
     }
     ]
     }
-
+    
     악동뮤지션
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:53 +0900",
@@ -4244,7 +4196,7 @@ for artist in artist_List:
     "bloggername": "시간의 틈 사이로 우리는 영원같은 한 순간을 스치고",
     "bloggerlink": "https://hyunjiwoon.tistory.com/",
     "postdate": "20200617"
-
+    
     },
     {
     "title": "154화 <b>악동뮤지션</b> 이찬혁 이수현 (놀토노래- 빈지노 BREAK... ",
@@ -4253,7 +4205,7 @@ for artist in artist_List:
     "bloggername": "남쪽구슬",
     "bloggerlink": "https://blog.naver.com/south0429",
     "postdate": "20210403"
-
+    
     },
     {
     "title": "블루투스 스피커 <b>악동뮤지션</b> 컨셉을 담다",
@@ -4262,7 +4214,7 @@ for artist in artist_List:
     "bloggername": "슈퍼문 Fashion, Golf, Life Log",
     "bloggerlink": "https://blog.naver.com/mcteens",
     "postdate": "20200622"
-
+    
     },
     {
     "title": "<b>악동뮤지션</b> 이찬혁 연예인 서울 꼬마빌딩 매매 살펴보았습니다",
@@ -4271,7 +4223,7 @@ for artist in artist_List:
     "bloggername": "매직매력의 깨작거리는 이야기",
     "bloggerlink": "https://blog.naver.com/dokyung22",
     "postdate": "20210528"
-
+    
     },
     {
     "title": "<b>악동뮤지션</b> 콜라보 Britz  AKMUTWS 완전무선 블루투스이어폰",
@@ -4280,7 +4232,7 @@ for artist in artist_List:
     "bloggername": "케니의 일상다반사",
     "bloggerlink": "https://blog.naver.com/kenykim70",
     "postdate": "20200701"
-
+    
     },
     {
     "title": "블루투스이어폰 <b>악동뮤지션</b> 브리츠 콜라보!",
@@ -4289,7 +4241,7 @@ for artist in artist_List:
     "bloggername": "쏘님의 소소한하루",
     "bloggerlink": "https://blog.naver.com/emily233",
     "postdate": "20200622"
-
+    
     },
     {
     "title": "♥ AKMU (<b>악동뮤지션</b>) 노래추천 / 발라드, 댄스곡 추천 ♥",
@@ -4298,7 +4250,7 @@ for artist in artist_List:
     "bloggername": "WONDER VAPE 강남",
     "bloggerlink": "https://blog.naver.com/apple0006175",
     "postdate": "20200929"
-
+    
     },
     {
     "title": "브리츠 블루투스 스피커 BA-AKMU <b>악동뮤지션</b>의 감성",
@@ -4307,7 +4259,7 @@ for artist in artist_List:
     "bloggername": "미다리의 말랑말랑 하루일기",
     "bloggerlink": "https://blog.naver.com/midary1009",
     "postdate": "20200627"
-
+    
     },
     {
     "title": "<b>악동뮤지션</b> 남매 - 서로를 어떻게 생각할까?",
@@ -4316,7 +4268,7 @@ for artist in artist_List:
     "bloggername": "연두타로",
     "bloggerlink": "https://blog.naver.com/shinhwamm",
     "postdate": "20201218"
-
+    
     },
     {
     "title": "놀라운토요일 놀토 <b>악동뮤지션</b> 악뮤 이찬혁 이수현 남매 나이... ",
@@ -4325,13 +4277,11 @@ for artist in artist_List:
     "bloggername": "모아봐요! 리뷰의숲",
     "bloggerlink": "https://blog.naver.com/seokks0919",
     "postdate": "20210403"
-
+    
     }
     ]
     }
-:::
-
-::: {.output .stream .stdout}
+    
     폴킴
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:54 +0900",
@@ -4346,7 +4296,7 @@ for artist in artist_List:
     "bloggername": "상스톤의 망고트리",
     "bloggerlink": "https://blog.naver.com/dhalwls",
     "postdate": "20210425"
-
+    
     },
     {
     "title": "2019 <b>폴킴</b> 콘서트 &lt;마음&gt; 후기, @경희대학교 평화의전당",
@@ -4355,7 +4305,7 @@ for artist in artist_List:
     "bloggername": "Like it or Love it",
     "bloggerlink": "https://blog.naver.com/xo_xoxox_",
     "postdate": "20191201"
-
+    
     },
     {
     "title": "210312 : <b>폴킴</b> 단독공연 &lt;선&gt;, 너를 만나 참 행복했어",
@@ -4364,7 +4314,7 @@ for artist in artist_List:
     "bloggername": "MY FAVORITE THINGS",
     "bloggerlink": "https://blog.naver.com/nyulbee",
     "postdate": "20210312"
-
+    
     },
     {
     "title": "- <b>폴킴</b> 콘서트 &lt;선&gt;",
@@ -4373,7 +4323,7 @@ for artist in artist_List:
     "bloggername": "죠니랑 까오까오 씽씽!",
     "bloggerlink": "https://blog.naver.com/pinee83",
     "postdate": "20210314"
-
+    
     },
     {
     "title": "피아노독학 SP_585 : <b>폴킴</b> '모든 날, 모든 순간' ②",
@@ -4382,7 +4332,7 @@ for artist in artist_List:
     "bloggername": "사카린 피아노",
     "bloggerlink": "https://blog.naver.com/saccharin_",
     "postdate": "20210524"
-
+    
     },
     {
     "title": "[<b>폴킴</b>콘서트]너무... 세종문화회관 <b>폴킴</b> 콘서트/모든 순간이... ",
@@ -4391,7 +4341,7 @@ for artist in artist_List:
     "bloggername": "Hello Hailey",
     "bloggerlink": "https://blog.naver.com/jhr444jsm",
     "postdate": "20210419"
-
+    
     },
     {
     "title": "<b>폴킴</b> (소이 해이 조규찬) 양희은 나이 남편 슬럼프 고백 (더... ",
@@ -4400,7 +4350,7 @@ for artist in artist_List:
     "bloggername": "웃는햇님",
     "bloggerlink": "https://blog.naver.com/ijoao",
     "postdate": "20210411"
-
+    
     },
     {
     "title": "2019 <b>폴킴</b> 투어 콘서트 (마음)",
@@ -4409,7 +4359,7 @@ for artist in artist_List:
     "bloggername": "매일을 꿈꾸다",
     "bloggerlink": "https://blog.naver.com/minjee0318",
     "postdate": "20201214"
-
+    
     },
     {
     "title": "음역대 높이는법 / <b>폴킴</b> 모든날 모든순간 쉽게 불러져도 해야할일",
@@ -4418,7 +4368,7 @@ for artist in artist_List:
     "bloggername": "제이한스 발성교정소",
     "bloggerlink": "https://blog.naver.com/gnsdlrl",
     "postdate": "20210304"
-
+    
     },
     {
     "title": "오늘의아침, <b>폴킴</b>콘서트후기, 실망, <b>폴킴</b>은귀엽다... ",
@@ -4427,11 +4377,11 @@ for artist in artist_List:
     "bloggername": "효니의 소소한 일상",
     "bloggerlink": "https://blog.naver.com/hey20335",
     "postdate": "20210314"
-
+    
     }
     ]
     }
-
+    
     여자아이들
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:54 +0900",
@@ -4446,7 +4396,7 @@ for artist in artist_List:
     "bloggername": "달콤한 인생",
     "bloggerlink": "https://blog.naver.com/jarlanlhd",
     "postdate": "20210221"
-
+    
     },
     {
     "title": "(<b>여자</b>)<b>아이들</b> 수진 학폭 피해자 입장문 사실과 달라 추가 증거... ",
@@ -4455,7 +4405,7 @@ for artist in artist_List:
     "bloggername": "RIA's 링링's",
     "bloggerlink": "https://blog.naver.com/cwmylee",
     "postdate": "20210321"
-
+    
     },
     {
     "title": "빅뱅 지드래곤 vs (<b>여자</b>)<b>아이들</b> 소연 사주",
@@ -4464,7 +4414,7 @@ for artist in artist_List:
     "bloggername": "나의 보금자리",
     "bloggerlink": "https://blog.naver.com/iranmoon",
     "postdate": "20210112"
-
+    
     },
     {
     "title": "<b>여자아이들</b> 수진 학폭 의혹에 직접 해명 배우 서신애 입장... ",
@@ -4473,7 +4423,7 @@ for artist in artist_List:
     "bloggername": "Bon Appetit & Posting",
     "bloggerlink": "https://blog.naver.com/kyongil1228",
     "postdate": "20210320"
-
+    
     },
     {
     "title": "레고 시티 블록 장난감 <b>여자아이들</b> 잘 가지고 놀까?",
@@ -4482,7 +4432,7 @@ for artist in artist_List:
     "bloggername": "정직한 보험인",
     "bloggerlink": "https://blog.naver.com/jeana14",
     "postdate": "20210321"
-
+    
     },
     {
     "title": "그룹 <b>여자아이들</b> 수진 학폭 의혹 VS 소속사 &quot;사실 파악 중... ",
@@ -4491,7 +4441,7 @@ for artist in artist_List:
     "bloggername": "글로벌의 꿈 린스가족",
     "bloggerlink": "https://blog.naver.com/cooljason92",
     "postdate": "20210221"
-
+    
     },
     {
     "title": "(<b>여자 아이들</b>) 슈화 - 서브보컬",
@@ -4500,7 +4450,7 @@ for artist in artist_List:
     "bloggername": "Gathering of knowledges",
     "bloggerlink": "https://blog.naver.com/vanci99",
     "postdate": "20201011"
-
+    
     },
     {
     "title": "서신애 입장 명확히 밝혀달라던 (<b>여자</b>)<b>아이들</b> 수진 19일째... ",
@@ -4509,7 +4459,7 @@ for artist in artist_List:
     "bloggername": "이슈모아",
     "bloggerlink": "https://blog.naver.com/kidjina1998",
     "postdate": "20210418"
-
+    
     },
     {
     "title": "<b>여자아이들</b> 수진 학폭 의혹 부인 다툼이었다네요 내용 정리",
@@ -4518,7 +4468,7 @@ for artist in artist_List:
     "bloggername": "모아봐요! 리뷰의숲",
     "bloggerlink": "https://blog.naver.com/seokks0919",
     "postdate": "20210221"
-
+    
     },
     {
     "title": "(<b>여자</b>)<b>아이들</b> 수진 지우기 손절 신곡 음원서 제외 이유 학폭... ",
@@ -4527,11 +4477,11 @@ for artist in artist_List:
     "bloggername": "모모와이_MOMOY",
     "bloggerlink": "https://blog.naver.com/gomsune1",
     "postdate": "20210419"
-
+    
     }
     ]
     }
-
+    
     산들
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:54 +0900",
@@ -4546,7 +4496,7 @@ for artist in artist_List:
     "bloggername": "B1A4 & 나의 생활",
     "bloggerlink": "https://blog.naver.com/ifonlylove",
     "postdate": "20210530"
-
+    
     },
     {
     "title": "210602 &lt;뮤지컬 1976 할란카운티&gt; <b>산들</b> 둘공 후기 &amp; 커튼콜... ",
@@ -4555,7 +4505,7 @@ for artist in artist_List:
     "bloggername": "출구없는 미로",
     "bloggerlink": "https://blog.naver.com/newdewdew",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "은평구 맛집 :: <b>산들</b> 샤브샤브 뷔페 주말데이트(+주차정보)",
@@ -4564,7 +4514,7 @@ for artist in artist_List:
     "bloggername": "소소한 일상, 웡이",
     "bloggerlink": "https://blog.naver.com/gmldk0101",
     "postdate": "20210419"
-
+    
     },
     {
     "title": "&lt;3rd : 210604&gt; 1976 할란카운티 후기_ <b>산들</b> 다니엘 캐스팅",
@@ -4573,7 +4523,7 @@ for artist in artist_List:
     "bloggername": "바야흐로 감성짙은 산들",
     "bloggerlink": "https://blog.naver.com/deulsd",
     "postdate": "20210605"
-
+    
     },
     {
     "title": "[서울근교 수목원]아이와 함께라면 <b>산들</b>소리수목원",
@@ -4582,7 +4532,7 @@ for artist in artist_List:
     "bloggername": "줄라이의 임장맛집",
     "bloggerlink": "https://blog.naver.com/spiriti",
     "postdate": "20210511"
-
+    
     },
     {
     "title": "B1A4 <b>산들</b> 《1976 할란카운티》 첫공 후기 산다니엘은... ",
@@ -4591,7 +4541,7 @@ for artist in artist_List:
     "bloggername": "너가 젤 예뻐 들아 ♡",
     "bloggerlink": "https://blog.naver.com/adjmt3690",
     "postdate": "20210530"
-
+    
     },
     {
     "title": "상암 dmc 맛집 은평구 뷔페 <b>산들</b> 샤브샤브",
@@ -4600,7 +4550,7 @@ for artist in artist_List:
     "bloggername": "Nursing Myself",
     "bloggerlink": "https://blog.naver.com/ssssssjin",
     "postdate": "20210416"
-
+    
     },
     {
     "title": "봄, 꽃향기 가득한 <b>산들</b>소리 수목원",
@@ -4609,7 +4559,7 @@ for artist in artist_List:
     "bloggername": "남양주시 블로그",
     "bloggerlink": "https://blog.naver.com/nyjloving",
     "postdate": "20210429"
-
+    
     },
     {
     "title": "상암동 맛집 - <b>산들</b> 샤브샤브",
@@ -4618,7 +4568,7 @@ for artist in artist_List:
     "bloggername": "YashicaKid's Analogue SPACE",
     "bloggerlink": "https://blog.naver.com/yashicakid",
     "postdate": "20210320"
-
+    
     },
     {
     "title": "고양시 일산동구 아파트 경매 중산동 <b>산들</b>마을2단지e... ",
@@ -4627,13 +4577,11 @@ for artist in artist_List:
     "bloggername": "\"할인된 금액으로 안전하게 낙찰받자\"",
     "bloggerlink": "https://blog.naver.com/ikko",
     "postdate": "20210521"
-
+    
     }
     ]
     }
-:::
-
-::: {.output .stream .stdout}
+    
     아이즈원
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:54 +0900",
@@ -4648,7 +4596,7 @@ for artist in artist_List:
     "bloggername": "New World Order 4 Life",
     "bloggerlink": "https://blog.naver.com/nwowolf",
     "postdate": "20210424"
-
+    
     },
     {
     "title": "<b>아이즈원</b> 리런칭 '평행우주 프로젝트' 크라우드펀딩 30억원 돌파",
@@ -4657,7 +4605,7 @@ for artist in artist_List:
     "bloggername": "All those pretty useless thoughts",
     "bloggerlink": "https://blog.naver.com/95khc",
     "postdate": "20210429"
-
+    
     },
     {
     "title": "<b>아이즈원</b> 미야와키 사쿠라, 일본 복귀 동시 한국인 비하 논란",
@@ -4666,7 +4614,7 @@ for artist in artist_List:
     "bloggername": "바다만큼 이야기",
     "bloggerlink": "https://blog.naver.com/azaleass",
     "postdate": "20210530"
-
+    
     },
     {
     "title": "디스패치 디아이콘 <b>아이즈원</b> vol.11 Shall we dance? 개인판... ",
@@ -4675,7 +4623,7 @@ for artist in artist_List:
     "bloggername": "프린켑스의 아이즈원 바라기",
     "bloggerlink": "https://blog.naver.com/avanago504",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "디 아이콘 <b>아이즈원</b> 혜원&amp;종합판 화보집 개봉기",
@@ -4684,7 +4632,7 @@ for artist in artist_List:
     "bloggername": "초코벌레의 서랍장",
     "bloggerlink": "https://blog.naver.com/chocoworm",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "<b>아이즈원</b> 해체.. 사쿠라 혐한 논란?",
@@ -4693,7 +4641,7 @@ for artist in artist_List:
     "bloggername": "욱이의 서울 탐험기",
     "bloggerlink": "https://blog.naver.com/k546",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "IZ*ONE(<b>아이즈원</b>) - 리런칭 프로젝트 및 근황 정리",
@@ -4702,7 +4650,7 @@ for artist in artist_List:
     "bloggername": "낱장의 기록",
     "bloggerlink": "https://blog.naver.com/solidmark",
     "postdate": "20210605"
-
+    
     },
     {
     "title": "<b>아이즈원</b>, La vie en rose!",
@@ -4711,7 +4659,7 @@ for artist in artist_List:
     "bloggername": "Venecia Holiday",
     "bloggerlink": "https://blog.naver.com/rbiredrum",
     "postdate": "20210325"
-
+    
     },
     {
     "title": "IZ*ONE <b>아이즈원</b> 공식 해체!  해체 이유는? / 프로듀스48 조작... ",
@@ -4720,7 +4668,7 @@ for artist in artist_List:
     "bloggername": "WONDER VAPE 강남",
     "bloggerlink": "https://blog.naver.com/apple0006175",
     "postdate": "20210429"
-
+    
     },
     {
     "title": "<b>아이즈원</b> 김민주 생일 컵홀더 이벤트 카페 투어 후기",
@@ -4729,11 +4677,11 @@ for artist in artist_List:
     "bloggername": "차차의 잡덕 일기",
     "bloggerlink": "https://blog.naver.com/shinjh0906",
     "postdate": "20210322"
-
+    
     }
     ]
     }
-
+    
     노을
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:55 +0900",
@@ -4748,7 +4696,7 @@ for artist in artist_List:
     "bloggername": "포토그래퍼 혠",
     "bloggerlink": "https://blog.naver.com/soyeomool",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "[여섯 번째] 서울 상암 <b>노을</b>공원 캠핑장",
@@ -4757,7 +4705,7 @@ for artist in artist_List:
     "bloggername": "자취로운 집요정의 아웃도어 라이프",
     "bloggerlink": "https://blog.naver.com/kwon5445",
     "postdate": "20210526"
-
+    
     },
     {
     "title": "바다뷰/<b>노을</b>뷰 좋았던 제주 중문 카페 더클리프",
@@ -4766,7 +4714,7 @@ for artist in artist_List:
     "bloggername": "마린블루의 기록(LOG) 마!블로그",
     "bloggerlink": "https://blog.naver.com/mablelog",
     "postdate": "20210409"
-
+    
     },
     {
     "title": "청라 <b>노을</b>공원 놀이터 울 애들 취향저격",
@@ -4775,7 +4723,7 @@ for artist in artist_List:
     "bloggername": "행복가득 긍정월드:)",
     "bloggerlink": "https://blog.naver.com/sweet_aya",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "우진해장국 싸들고 피크닉&amp; 제주도 <b>노을</b>명소",
@@ -4784,7 +4732,7 @@ for artist in artist_List:
     "bloggername": "방황하는 오춘기",
     "bloggerlink": "https://blog.naver.com/lje_rose",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "제주 흑돼지 맛집+미친<b>노을</b>뷰=별돈별",
@@ -4793,7 +4741,7 @@ for artist in artist_List:
     "bloggername": "하이 시드니 Hi, sydney",
     "bloggerlink": "https://blog.naver.com/andoo7",
     "postdate": "20210511"
-
+    
     },
     {
     "title": "월미도 여행 <b>노을</b>이 춤추는 곳",
@@ -4802,7 +4750,7 @@ for artist in artist_List:
     "bloggername": "B급 정서의 스트리트 포토그래퍼 서타이거 만만세 !!!",
     "bloggerlink": "https://blog.naver.com/sawtiger",
     "postdate": "20210512"
-
+    
     },
     {
     "title": "인천의 멋진 전경을 볼 수 있는 청라 <b>노을</b>공원",
@@ -4811,7 +4759,7 @@ for artist in artist_List:
     "bloggername": "인천광역시 공식 블로그",
     "bloggerlink": "https://blog.naver.com/incheontogi",
     "postdate": "20210517"
-
+    
     },
     {
     "title": "신창풍차해안도로 <b>노을</b> 보며 걷기",
@@ -4820,7 +4768,7 @@ for artist in artist_List:
     "bloggername": "편안하고'安' 밝은'昶' 안창의 제주",
     "bloggerlink": "https://blog.naver.com/changhyunoi",
     "postdate": "20210530"
-
+    
     },
     {
     "title": "전북 구시포<b>노을</b>캠핑장 1박2일동안 먹은 캠핑음식들:)",
@@ -4829,11 +4777,11 @@ for artist in artist_List:
     "bloggername": "연느의 365일 다이어리",
     "bloggerlink": "https://blog.naver.com/lovelysy90",
     "postdate": "20210526"
-
+    
     }
     ]
     }
-
+    
     트와이스
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:55 +0900",
@@ -4848,7 +4796,7 @@ for artist in artist_List:
     "bloggername": "Mujer Bonita",
     "bloggerlink": "https://blog.naver.com/ronaldawa",
     "postdate": "20210424"
-
+    
     },
     {
     "title": "요새 <b>트와이스</b> 노래는 너무 어려운 것 같다",
@@ -4857,7 +4805,7 @@ for artist in artist_List:
     "bloggername": "여기 이름을 입력하래요",
     "bloggerlink": "https://blog.naver.com/5536650",
     "postdate": "20210517"
-
+    
     },
     {
     "title": "<b>트와이스</b>는 17번째 1억뷰_블랙핑크는 15번째 1억뷰, 댄스... ",
@@ -4866,7 +4814,7 @@ for artist in artist_List:
     "bloggername": "오늘도 잔차 타?",
     "bloggerlink": "https://blog.naver.com/chaeban",
     "postdate": "20210520"
-
+    
     },
     {
     "title": "<b>트와이스</b> 컴백 타이틀곡 &quot;알콜프리 (Alcohol-Free)&quot; 및 수록곡... ",
@@ -4875,7 +4823,7 @@ for artist in artist_List:
     "bloggername": "소설같은세상 시즌3",
     "bloggerlink": "https://blog.naver.com/wls0474",
     "postdate": "20210531"
-
+    
     },
     {
     "title": "2021년 6월 컴백 아이돌 가수 라인업 - 마마무, 엑소, <b>트와이스</b>... ",
@@ -4884,7 +4832,7 @@ for artist in artist_List:
     "bloggername": "☆*:.My Sweet Haven.:*☆",
     "bloggerlink": "https://blog.naver.com/nadiatear0",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "<b>트와이스</b>, 박진영 작사·작곡 ‘알콜-프리’ 타이틀곡 확정",
@@ -4893,7 +4841,7 @@ for artist in artist_List:
     "bloggername": "바다만큼 이야기",
     "bloggerlink": "https://blog.naver.com/azaleass",
     "postdate": "20210531"
-
+    
     },
     {
     "title": "JYP 대표 걸그룹 <b>트와이스</b> 미니앨범 Alcohol Free로 컴백",
@@ -4902,7 +4850,7 @@ for artist in artist_List:
     "bloggername": "노마드의 꿈",
     "bloggerlink": "https://blog.naver.com/oogaa107",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "#5월 28일 오늘일기 &amp; 갑작스럽지만, 점쳐도 될까요? <b>트와이스</b> 편",
@@ -4911,7 +4859,7 @@ for artist in artist_List:
     "bloggername": "kimurakaera님의 블로그",
     "bloggerlink": "https://blog.naver.com/kimurakaera",
     "postdate": "20210528"
-
+    
     },
     {
     "title": "PS4 세키로 섀도우 다이 <b>트와이스</b> 플레이 일기 : 보스 플레이... ",
@@ -4920,7 +4868,7 @@ for artist in artist_List:
     "bloggername": "스파이크의 무한 잡설 공간",
     "bloggerlink": "https://blog.naver.com/ps3player",
     "postdate": "20210507"
-
+    
     },
     {
     "title": "<b>트와이스</b>, 타이틀곡은 ‘알콜-프리’…新 서머송 예감",
@@ -4929,13 +4877,11 @@ for artist in artist_List:
     "bloggername": "정현법사",
     "bloggerlink": "https://blog.naver.com/bubsa0701",
     "postdate": "20210601"
-
+    
     }
     ]
     }
-:::
-
-::: {.output .stream .stdout}
+    
     가호
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:55 +0900",
@@ -4950,7 +4896,7 @@ for artist in artist_List:
     "bloggername": "구리구리-한성별곡",
     "bloggerlink": "https://blog.naver.com/gurygury2001",
     "postdate": "20210525"
-
+    
     },
     {
     "title": "수(水)의 공경과 <b>가호</b>",
@@ -4959,7 +4905,7 @@ for artist in artist_List:
     "bloggername": "길잡이의 집",
     "bloggerlink": "https://blog.naver.com/haroclk",
     "postdate": "20210114"
-
+    
     },
     {
     "title": "로스트아크 이벤트 5월 출석부 이번 보상은 태양의 <b>가호</b>!",
@@ -4968,7 +4914,7 @@ for artist in artist_List:
     "bloggername": "게임탐구생활",
     "bloggerlink": "https://blog.naver.com/thdbdlaeo",
     "postdate": "20210421"
-
+    
     },
     {
     "title": "가수 <b>가호</b> 나이/키/학력",
@@ -4977,7 +4923,7 @@ for artist in artist_List:
     "bloggername": "저랑 감성이 통하셨나요?",
     "bloggerlink": "https://blog.naver.com/arari0614",
     "postdate": "20210306"
-
+    
     },
     {
     "title": "드럼취미 레슨때 즐겨치는곡! <b>가호</b> 시작",
@@ -4986,7 +4932,7 @@ for artist in artist_List:
     "bloggername": "맛집 찾기 여행 중!",
     "bloggerlink": "https://blog.naver.com/seungwon19",
     "postdate": "20210523"
-
+    
     },
     {
     "title": "[치기 쉬운 피아노 악보]이태원클라쓰 OSTㅣ시작 - <b>가호</b>ㅣ피아... ",
@@ -4995,7 +4941,7 @@ for artist in artist_List:
     "bloggername": "MOSICA MUSIC",
     "bloggerlink": "https://blog.naver.com/silverstarca",
     "postdate": "20200331"
-
+    
     },
     {
     "title": "열일곱집팜스 <b>가호</b>마을 황미 3분도쌀 현미쌀눈쌀",
@@ -5004,7 +4950,7 @@ for artist in artist_List:
     "bloggername": "나만의공간. 나만의이야기.",
     "bloggerlink": "https://blog.naver.com/fkguswn0919",
     "postdate": "20210406"
-
+    
     },
     {
     "title": "박서진 정수라 나이 프로필 이혼사유 이영현 김재환 <b>가호</b>... ",
@@ -5013,7 +4959,7 @@ for artist in artist_List:
     "bloggername": "RIA's 링링's",
     "bloggerlink": "https://blog.naver.com/cwmylee",
     "postdate": "20210220"
-
+    
     },
     {
     "title": "가마솥곰탕+모둠수육전골(소백관)·해물소뼈전골(<b>가호</b>전골) 등",
@@ -5022,7 +4968,7 @@ for artist in artist_List:
     "bloggername": "bizbank님의 블로그",
     "bloggerlink": "https://blog.naver.com/bizbank",
     "postdate": "20210311"
-
+    
     },
     {
     "title": "<b>가호</b>-시작(이태원클라쓰OST) 통기타 배우기 [강의/악보/코드... ",
@@ -5031,11 +4977,11 @@ for artist in artist_List:
     "bloggername": "Grab the Guitar - 그랩더기타",
     "bloggerlink": "https://blog.naver.com/guitarphil",
     "postdate": "20200312"
-
+    
     }
     ]
     }
-
+    
     조이
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:56 +0900",
@@ -5050,7 +4996,7 @@ for artist in artist_List:
     "bloggername": "시선에 날개를 달다",
     "bloggerlink": "https://blog.naver.com/mjymodel",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "유리공예 더빛나는<b>조이</b>상점 코로나데이트로도 딱!",
@@ -5059,7 +5005,7 @@ for artist in artist_List:
     "bloggername": "해피밍의 해피한 일상 ♥ㅅ♥",
     "bloggerlink": "https://blog.naver.com/mingming_93",
     "postdate": "20210528"
-
+    
     },
     {
     "title": "<b>조이</b>코스 빔프로젝터 JB-W1 후기♪ 가성비 짱",
@@ -5068,7 +5014,7 @@ for artist in artist_List:
     "bloggername": "듀스커버리",
     "bloggerlink": "https://blog.naver.com/27dew",
     "postdate": "20210602"
-
+    
     },
     {
     "title": "아이돌 산업 속 코바늘 의류 및 소품 등장의 건: <b>조이</b>와... ",
@@ -5077,7 +5023,7 @@ for artist in artist_List:
     "bloggername": "이상한 일기장",
     "bloggerlink": "https://blog.naver.com/jesperation1",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "<b>조이</b> 카시트 스핀360 설치 내돈내산 후기",
@@ -5086,7 +5032,7 @@ for artist in artist_List:
     "bloggername": "리니주니와 함께하는 매일❤",
     "bloggerlink": "https://blog.naver.com/ally232",
     "postdate": "20210513"
-
+    
     },
     {
     "title": "모기퇴치기 메이드<b>조이</b>로 잡아보자",
@@ -5095,7 +5041,7 @@ for artist in artist_List:
     "bloggername": "워킹대디",
     "bloggerlink": "https://blog.naver.com/sunder-power",
     "postdate": "20210524"
-
+    
     },
     {
     "title": "<b>조이</b>코스 빔프로젝터 JB-W1 캠핑용 가정용 다 좋아요",
@@ -5104,7 +5050,7 @@ for artist in artist_List:
     "bloggername": "★스타일퀸 정희",
     "bloggerlink": "https://blog.naver.com/k4minlove",
     "postdate": "20210518"
-
+    
     },
     {
     "title": "야탑 네일 캐릭터네일로 귀엽게 <b>조이</b>네일",
@@ -5113,7 +5059,7 @@ for artist in artist_List:
     "bloggername": "담이의 좌충우돌 여행이야기",
     "bloggerlink": "https://blog.naver.com/minu3025",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "풋<b>조이</b> 프리미어 시리즈 골프화 플린트 첫인상",
@@ -5122,7 +5068,7 @@ for artist in artist_List:
     "bloggername": "여행.. 그 달콤함",
     "bloggerlink": "https://blog.naver.com/cjdthfrhfvm",
     "postdate": "20210524"
-
+    
     },
     {
     "title": "미니 빔프로젝터, 가정용/ 캠핑용으로 사용하기 좋은 <b>조이</b>코... ",
@@ -5131,11 +5077,11 @@ for artist in artist_List:
     "bloggername": "천예의 예쁘게 사는법",
     "bloggerlink": "https://blog.naver.com/ardeur80",
     "postdate": "20210527"
-
+    
     }
     ]
     }
-
+    
     헤이즈
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:56 +0900",
@@ -5150,7 +5096,7 @@ for artist in artist_List:
     "bloggername": "맛을 탐하다.",
     "bloggerlink": "https://blog.naver.com/nanakon",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "여름 쿠션 추천 묻어나지 않는 코랄<b>헤이즈</b> 쿠션",
@@ -5159,7 +5105,7 @@ for artist in artist_List:
     "bloggername": "몬순이의 일상리뷰기록",
     "bloggerlink": "https://blog.naver.com/strangefate",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "[남양주] H2s <b>헤이즈</b> 수제버거.",
@@ -5168,7 +5114,7 @@ for artist in artist_List:
     "bloggername": "일상생활 보고서.",
     "bloggerlink": "https://blog.naver.com/scvhan",
     "postdate": "20210515"
-
+    
     },
     {
     "title": "쿠션팩트추천, 이 쿠션 저 쿠션 다 써보고 코랄<b>헤이즈</b>로 왔다.",
@@ -5177,7 +5123,7 @@ for artist in artist_List:
     "bloggername": "CHEEK AND CHIC 치크앤시크",
     "bloggerlink": "https://blog.naver.com/vkdi87",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "힘없는 두피, 쭉쭉 빠지는 탈모 고민에는 더<b>헤이즈</b> 샴푸",
@@ -5186,7 +5132,7 @@ for artist in artist_List:
     "bloggername": "상상과 오상의 자유로운 유희",
     "bloggerlink": "https://blog.naver.com/y143harada",
     "postdate": "20210426"
-
+    
     },
     {
     "title": "‘컴백’<b>헤이즈</b> “송중기와 연기 호흡 영광, 방해될까 걱정했다”",
@@ -5195,7 +5141,7 @@ for artist in artist_List:
     "bloggername": "바다만큼 이야기",
     "bloggerlink": "https://blog.naver.com/azaleass",
     "postdate": "20210520"
-
+    
     },
     {
     "title": "묻어나지않는쿠션 코랄<b>헤이즈</b>! 마스크 속 피부관리... ",
@@ -5204,7 +5150,7 @@ for artist in artist_List:
     "bloggername": "으뉴와 함께하는 모든시간 ♡",
     "bloggerlink": "https://blog.naver.com/prlqupuqnrmr",
     "postdate": "20210602"
-
+    
     },
     {
     "title": "쿠션 팩트_촉촉한  쿠션팩트 「코랄<b>헤이즈</b>」",
@@ -5213,7 +5159,7 @@ for artist in artist_List:
     "bloggername": "시아와세마스",
     "bloggerlink": "https://blog.naver.com/cherry6248",
     "postdate": "20210523"
-
+    
     },
     {
     "title": "쿠션추천 :: 커버와 피부관리까지 산소통쿠션 코랄<b>헤이즈</b> FGF7... ",
@@ -5222,7 +5168,7 @@ for artist in artist_List:
     "bloggername": "수아의 꼼지락 세상",
     "bloggerlink": "https://blog.naver.com/likesua",
     "postdate": "20210516"
-
+    
     },
     {
     "title": "[내돈내산] 클리오 프로 아이 팔레트 미니 #로지<b>헤이즈</b>",
@@ -5231,13 +5177,11 @@ for artist in artist_List:
     "bloggername": "다랑의 뷰티양x플레이군",
     "bloggerlink": "https://blog.naver.com/siehl",
     "postdate": "20210403"
-
+    
     }
     ]
     }
-:::
-
-::: {.output .stream .stdout}
+    
     화사
     {
     "lastBuildDate": "Sat, 05 Jun 2021 17:56:56 +0900",
@@ -5252,7 +5196,7 @@ for artist in artist_List:
     "bloggername": "♥story of momsoni",
     "bloggerlink": "https://blog.naver.com/momsoni",
     "postdate": "20210510"
-
+    
     },
     {
     "title": "<b>화사</b> 별보러간곳 - 강릉 안반데기 은하수 인생샷 꿀팁",
@@ -5261,7 +5205,7 @@ for artist in artist_List:
     "bloggername": "레온, 작은 여행 다녀오겠습니다.",
     "bloggerlink": "https://blog.naver.com/yellostory",
     "postdate": "20210601"
-
+    
     },
     {
     "title": "나혼자산다 <b>화사</b> 님이 사용하신  선풍기!! 너무 이뻐요 ~",
@@ -5270,7 +5214,7 @@ for artist in artist_List:
     "bloggername": "즐거움가득한세상",
     "bloggerlink": "https://blog.naver.com/choidongjuju",
     "postdate": "20210321"
-
+    
     },
     {
     "title": "<b>화사</b>네일아트 키스뉴욕 마이뮤즈 오프화이트",
@@ -5279,7 +5223,7 @@ for artist in artist_List:
     "bloggername": "Your Beauty Mento 은린",
     "bloggerlink": "https://blog.naver.com/danwoo47jh",
     "postdate": "20210527"
-
+    
     },
     {
     "title": "명지피부관리 더 <b>화사</b> 스킨앤바디 방짜유기 주열기로... ",
@@ -5288,7 +5232,7 @@ for artist in artist_List:
     "bloggername": "블라블라",
     "bloggerlink": "https://blog.naver.com/lazynana1",
     "postdate": "20210603"
-
+    
     },
     {
     "title": "케이시X조영수, 마마무 문별•솔라•휘인•<b>화사</b> WAW 544회",
@@ -5297,7 +5241,7 @@ for artist in artist_List:
     "bloggername": "모모와이_MOMOY",
     "bloggerlink": "https://blog.naver.com/gomsune1",
     "postdate": "20210604"
-
+    
     },
     {
     "title": "광주북구피부관리/<b>화사</b>로움/광주얼굴윤곽관리",
@@ -5306,7 +5250,7 @@ for artist in artist_List:
     "bloggername": "marigold *",
     "bloggerlink": "https://blog.naver.com/white0962",
     "postdate": "20210503"
-
+    
     },
     {
     "title": "키스뉴욕 셀프 붙이는 젤네일 <b>화사</b> 네일팁 프레스앤고 이거야",
@@ -5315,7 +5259,7 @@ for artist in artist_List:
     "bloggername": "쏭쏭드리아 \"쇼핑에 진심\"",
     "bloggerlink": "https://blog.naver.com/ssdria",
     "postdate": "20210426"
-
+    
     },
     {
     "title": "<b>화사</b> 젤네일 추천 힙한 연예인 연장쉐입 집에서 1분완성!",
@@ -5324,7 +5268,7 @@ for artist in artist_List:
     "bloggername": "부산블로거 도로시 블로그",
     "bloggerlink": "https://blog.naver.com/xoxo6514",
     "postdate": "20210513"
-
+    
     },
     {
     "title": "시승하고 왔어요, 나혼자산다<b>화사</b>SUV(feat. 엄마사주고싶다)",
@@ -5333,26 +5277,20 @@ for artist in artist_List:
     "bloggername": "누리블로그",
     "bloggerlink": "https://blog.naver.com/ever8472",
     "postdate": "20210511"
-
+    
     }
     ]
     }
-:::
-:::
+    
 
-::: {.cell .markdown}
-# 4. 분석을 위한 데이터의 가공 {#4-분석을-위한-데이터의-가공}
-:::
 
-::: {.cell .markdown}
-**1)네이버 블로그 검색 추위 데이터에서 내가 필요한 아티스트 이름과 총
-포스팅 수를 도출해 보았다.** `<br>`{=html} 우선 3번에서 사용한 코드를
-갖고온 뒤, 아티스트명과 총 포스팅 수를 얻어내기 위해 코드를
-재구성하였다.
-:::
+# 4. 분석을 위한 데이터의 가공
 
-::: {.cell .code execution_count="5"}
-``` python
+**1)네이버 블로그 검색 추위 데이터에서 내가 필요한 아티스트 이름과 총 포스팅 수를 도출해 보았다.** <br>
+ 우선 3번에서 사용한 코드를 갖고온 뒤, 아티스트명과 총 포스팅 수를 얻어내기 위해 코드를 재구성하였다.
+
+
+```python
 import os
 import sys
 import urllib.request
@@ -5391,22 +5329,17 @@ for key in artist_blog.keys():
         artist_blog[key] = value.replace(',', '')
 
 print(artist_blog)
+
 ```
 
-::: {.output .stream .stdout}
     {'아이유': '722576', '방탄소년단': '1198778', 'BLACKPINK': '65110', '장범준': '59684', '오마이걸': '102537', '백예린': '52497', '창모': '28514', '볼빨간사춘기': '65044', '지코': '155260', '레드벨벳': '443401', '태연': '659651', '싹쓰리': '86576', '마마무': '153477', '크러쉬': '200900', '청하': '353516', '오반': '23604', '조정석': '137159', '규현': '120127', 'ITZY': '34253', '악동뮤지션': '67932', '폴킴': '62406', '여자아이들': '2929018', '산들': '772438', '아이즈원': '104625', '노을': '2461168', '트와이스': '325011', '가호': '117182', '조이': '1122468', '헤이즈': '117570', '화사': '253216'}
-:::
-:::
 
-::: {.cell .markdown}
-이제 벅스 차트에서 가져온 값과, 블로그 포스팅수를 환산해서 두 값을
-합쳐볼 것이다. `<br>`{=html} 벅스 차트에서 언급된 횟수는 그 값을 그대로
-사용할 것이고, 밸런스를 맞추기 위해 블로그 포스팅 수는 10000으로 나눈
-값을 활용할 것이다.
-:::
 
-::: {.cell .code execution_count="6"}
-``` python
+이제 벅스 차트에서 가져온 값과, 블로그 포스팅수를 환산해서 두 값을 합쳐볼 것이다. <br>
+벅스 차트에서 언급된 횟수는 그 값을 그대로 사용할 것이고, 밸런스를 맞추기 위해 블로그 포스팅 수는 10000으로 나눈 값을 활용할 것이다. 
+
+
+```python
 #값을 10000으로 나누기 위해 dictionary 복사본을 만든다.
 artist_blog_new = artist_blog.copy()
 
@@ -5455,32 +5388,28 @@ for key in total_dictionary.keys():
 total_rank = sorted(total_dictionary.items(), key = operator.itemgetter(1), reverse=True)
 
 print("두 자료 합산한 점수: \n", total_rank, "\n")
+
 ```
 
-::: {.output .stream .stdout}
     블로그 포스팅수 점수 환산: 
      {'아이유': 72.2576, '방탄소년단': 119.8778, 'BLACKPINK': 6.511, '장범준': 5.9684, '오마이걸': 10.2537, '백예린': 5.2497, '창모': 2.8514, '볼빨간사춘기': 6.5044, '지코': 15.526, '레드벨벳': 44.3401, '태연': 65.9651, '싹쓰리': 8.6576, '마마무': 15.3477, '크러쉬': 20.09, '청하': 35.3516, '오반': 2.3604, '조정석': 13.7159, '규현': 12.0127, 'ITZY': 3.4253, '악동뮤지션': 6.7932, '폴킴': 6.2406, '여자아이들': 292.9018, '산들': 77.2438, '아이즈원': 10.4625, '노을': 246.1168, '트와이스': 32.5011, '가호': 11.7182, '조이': 112.2468, '헤이즈': 11.757, '화사': 25.3216} 
-
+    
     벅스 차트 크롤링: 
      ['아이유(IU), 118', '방탄소년단, 77', 'BLACKPINK, 64', '장범준, 60', '오마이걸(OH MY GIRL), 54', '백예린 (Yerin Baek), 43', '창모(CHANGMO), 42', '볼빨간사춘기, 39', '지코, 37', 'Red Velvet (레드벨벳), 33', '태연 (TAEYEON), 33', '싹쓰리 (유두래곤, 린다G, 비룡), 32', '마마무(Mamamoo), 31', 'Crush, 30', '청하, 30', '오반 (OVAN), 30', '조정석, 29', '규현 (KYUHYUN), 28', 'ITZY (있지), 27', 'AKMU (악동뮤지션), 26', '폴킴(Paul Kim), 26', '(여자)아이들, 24', '산들, 24', 'IZ*ONE(아이즈원), 23', '노을, 21', 'TWICE (트와이스), 21', '가호(Gaho), 20', '조이 (JOY), 19', '헤이즈(Heize), 19', '화사(Hwa Sa), 19'] 
-
+    
     벅스 차트 크롤링 언급 횟수만 정리한 것: 
      ['118', '77', '64', '60', '54', '43', '42', '39', '37', '33', '33', '32', '31', '30', '30', '30', '29', '28', '27', '26', '26', '24', '24', '23', '21', '21', '20', '19', '19', '19'] 
-
+    
     두 자료 합산한 점수: 
      [('여자아이들', 317), ('노을', 267), ('방탄소년단', 197), ('아이유', 190), ('조이', 131), ('산들', 101), ('태연', 99), ('레드벨벳', 77), ('BLACKPINK', 71), ('장범준', 66), ('청하', 65), ('오마이걸', 64), ('트와이스', 54), ('지코', 53), ('크러쉬', 50), ('백예린', 48), ('볼빨간사춘기', 46), ('마마무', 46), ('창모', 45), ('화사', 44), ('조정석', 43), ('싹쓰리', 41), ('규현', 40), ('악동뮤지션', 33), ('아이즈원', 33), ('오반', 32), ('폴킴', 32), ('가호', 32), ('헤이즈', 31), ('ITZY', 30)] 
-:::
-:::
+    
 
-::: {.cell .markdown}
-# 5. 분석 결과 도출 `<br>`{=html} {#5-분석-결과-도출--}
 
-**우선 데이터의 가공과 정리는 끝났다. 이제 결과를 명료하게 보이도록 하기
-위해 깔끔하게 print 하겠다.**
-:::
+# 5. 분석 결과 도출 <br>
+**우선 데이터의 가공과 정리는 끝났다. 이제 결과를 명료하게 보이도록 하기 위해 깔끔하게 print 하겠다.**
 
-::: {.cell .code execution_count="12"}
-``` python
+
+```python
 # 한눈에 보기 위해 다시 print하였다. 
 rank = 1
 for artist in total_rank:
@@ -5489,7 +5418,6 @@ for artist in total_rank:
     print(artist)
 ```
 
-::: {.output .stream .stdout}
     1 등
     ('여자아이들', 317)
     2 등
@@ -5550,74 +5478,65 @@ for artist in total_rank:
     ('헤이즈', 31)
     30 등
     ('ITZY', 30)
-:::
-:::
 
-::: {.cell .markdown}
-# 6. 결론 {#6-결론}
 
-이제, 차이를 확인하기 위해 기존 차트와 함께 비교를 해 보겠다. 다음은
-멜론차트 기준 아티스트 TOP20에 관한 자료이다. `<br>`{=html}
-![아티스트1](img/아티스트1.jpg) ![아티스트2](img/아티스트2.jpg)
-![아티스트3](img/아티스트3.jpg)
-![아티스트4](img/아티스트4.jpg)`<br>`{=html} `<br>`{=html} 다음으로 내가
-구현해본 차트이다. `<br>`{=html}
-![Chart_by_me](img/Chart_by_me.png)`<br>`{=html} 다음으로 두 차트를
-아티스트의 음악 장르로 나누어 분류해 보았다.(**TOP20까지**)
-`<br>`{=html}`<br>`{=html} **멜론차트** `<br>`{=html} 아이돌 :
-12`<br>`{=html} 힙합 : 3`<br>`{=html} 트로트 : 3`<br>`{=html} 발라드 :
-2`<br>`{=html}`<br>`{=html} **내가 만든 차트**`<br>`{=html} 아이돌 :
-9`<br>`{=html} 발라드 : 6`<br>`{=html} 힙합 : 5`<br>`{=html}
+# 6. 결론
+ 이제, 차이를 확인하기 위해 기존 차트와 함께 비교를 해 보겠다. 다음은 멜론차트 기준 아티스트 TOP20에 관한 자료이다. <br>
+ ![아티스트1](img/아티스트1.jpg)
+ ![아티스트2](img/아티스트2.jpg)
+ ![아티스트3](img/아티스트3.jpg)
+ ![아티스트4](img/아티스트4.jpg)<br>
+ <br>
+ 다음으로 내가 구현해본 차트이다. <br>
+![Chart_by_me](img/Chart_by_me.png)<br>
+ 다음으로 두 차트를 아티스트의 음악 장르로 나누어 분류해 보았다.(**TOP20까지**) <br><br>
+ **멜론차트** <br>
+ 아이돌 : 12<br>
+  힙합  :  3<br>
+ 트로트 :  3<br>
+ 발라드 :  2<br><br>
+ **내가 만든 차트**<br>
+ 아이돌 : 9<br>
+ 발라드 : 6<br>
+  힙합  : 5<br>
+  
+ 확실히 멜론차트에는 팬층이 두터운 아이돌이 상위권을 차지하고 있었다. 반면, 내가 분석한 차트는 아이돌이 가장 많긴 했지만, 다른 장르의 아티스트들도 골고루 분포되어 있는 것을 확인할 수 있었다. 이를 토대로, 음원 스트리밍 사이트의 음원 차트는 꽤나 편향되어 있다는 점을 알 수 있다. 또한 TV프로그램 중 '미스터 트롯'이 흥행하면서 잠시나마 트로트의 인기가 급상승했기 때문에 멜론 차트에서 2명의 아티스트가 상위권에 있는 것을 확인할 수 있었지만, 내가 구성한 차트를 통해 일시적인 인기였음을 알 수 있다. <br>
+  
+ 내가 재구성한 차트 또한, 단순하게 벅스 주간 차트와 블로그 포스팅 수를 크롤링한 자료를 활용하였으므로 정확한 지표라고 보긴 어렵다. 이에 추가로, 인스타그램 해시태그 수나, 앨범 판매량, 유튜브 조회수, 수상실적 등을 종합하면 더욱 확실한 차트를 구성할 수 있을 것이라 생각한다. <br>
+ 
+ 결론: 내가 만든 차트와 음원 스트리밍 사이트의 실제 차트를 비교했을 때, 꽤나 차이가 있음을 확인할 수 있었다. 음원 스트리밍 사이트는 아이돌에 편향된 차트를 볼 수 있었지만, 내가 만든 차트에서는 다양한 장르의 아티스트들이 고루 분포함을 알 수 있다.
+ 
+ 
+ 
 
-확실히 멜론차트에는 팬층이 두터운 아이돌이 상위권을 차지하고 있었다.
-반면, 내가 분석한 차트는 아이돌이 가장 많긴 했지만, 다른 장르의
-아티스트들도 골고루 분포되어 있는 것을 확인할 수 있었다. 이를 토대로,
-음원 스트리밍 사이트의 음원 차트는 꽤나 편향되어 있다는 점을 알 수 있다.
-또한 TV프로그램 중 \'미스터 트롯\'이 흥행하면서 잠시나마 트로트의 인기가
-급상승했기 때문에 멜론 차트에서 2명의 아티스트가 상위권에 있는 것을
-확인할 수 있었지만, 내가 구성한 차트를 통해 일시적인 인기였음을 알 수
-있다. `<br>`{=html}
 
-내가 재구성한 차트 또한, 단순하게 벅스 주간 차트와 블로그 포스팅 수를
-크롤링한 자료를 활용하였으므로 정확한 지표라고 보긴 어렵다. 이에 추가로,
-인스타그램 해시태그 수나, 앨범 판매량, 유튜브 조회수, 수상실적 등을
-종합하면 더욱 확실한 차트를 구성할 수 있을 것이라 생각한다.
-`<br>`{=html}
+# 7. 참고문헌
 
-결론: 내가 만든 차트와 음원 스트리밍 사이트의 실제 차트를 비교했을 때,
-꽤나 차이가 있음을 확인할 수 있었다. 음원 스트리밍 사이트는 아이돌에
-편향된 차트를 볼 수 있었지만, 내가 만든 차트에서는 다양한 장르의
-아티스트들이 고루 분포함을 알 수 있다.
-:::
+-벅스 차트 크롤링 <br>
+https://cafe.naver.com/itscholar/37846 <br>
+-네이버 api <br>
+https://developers.naver.com/main/ <br>
+-중복값을 세기 위한 try&except 문 <br>
+https://infinitt.tistory.com/78<br>
+-Beautifulsoup 사용법<br>
+https://wikidocs.net/85739<br>
+-instagram 크롤링<br>
+https://mokeya.tistory.com/68<br>
+-dictionary 복사<br>
+https://blog.naver.com/hankrah/221889032981
 
-::: {.cell .markdown}
-# 7. 참고문헌 {#7-참고문헌}
-
--벅스 차트 크롤링 `<br>`{=html} <https://cafe.naver.com/itscholar/37846>
-`<br>`{=html} -네이버 api `<br>`{=html}
-<https://developers.naver.com/main/> `<br>`{=html} -중복값을 세기 위한
-try&except 문 `<br>`{=html}
-<https://infinitt.tistory.com/78>`<br>`{=html} -Beautifulsoup
-사용법`<br>`{=html} <https://wikidocs.net/85739>`<br>`{=html} -instagram
-크롤링`<br>`{=html} <https://mokeya.tistory.com/68>`<br>`{=html}
--dictionary 복사`<br>`{=html}
-<https://blog.naver.com/hankrah/221889032981>
-:::
-
-::: {.cell .markdown}
-# 8. 별첨: (3)의 획득한 데이터 원본 {#8-별첨-3의-획득한-데이터-원본}
+# 8. 별첨: (3)의 획득한 데이터 원본
 
 **별첨(3) 폴더 확인**
 
-# 9. 별첨: (4)의 가공된 데이터 원본 {#9-별첨-4의-가공된-데이터-원본}
+# 9. 별첨: (4)의 가공된 데이터 원본
+![분석1](img/분석1.png)
+![결과](img/결과.png)
 
-![분석1](img/분석1.png) ![결과](img/결과.png)
-
-# 10. 별첨: 본인이 직접 개발한 Python 소스코드 원본 {#10-별첨-본인이-직접-개발한-python-소스코드-원본}
-
-**1. dictionary화 시키기 위해 (3)에서 개발한 코드`<br>`{=html}**
-![개발코드1](img/개발코드1.png)`<br>`{=html}`<br>`{=html} **2. (4)에서
-데이터를 가공하기 위해 개발한 코드`<br>`{=html}**
-![개발코드2](img/개발코드2.png) ![개발코드3](img/개발코드3.png)
+# 10. 별첨: 본인이 직접 개발한 Python 소스코드 원본
+**1. dictionary화 시키기 위해 (3)에서 개발한 코드<br>**
+![개발코드1](img/개발코드1.png)<br><br>
+**2. (4)에서 데이터를 가공하기 위해 개발한 코드<br>**
+![개발코드2](img/개발코드2.png)
+![개발코드3](img/개발코드3.png)
 ![개발코드4](img/개발코드4.png)
-:::
